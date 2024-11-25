@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named reduce_v2
+
+# Build rule for target.
+reduce_v2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v2
+.PHONY : reduce_v2
+
+# fast build rule for target.
+reduce_v2/fast:
+	$(MAKE) -f CMakeFiles/reduce_v2.dir/build.make CMakeFiles/reduce_v2.dir/build
+.PHONY : reduce_v2/fast
+
+#=============================================================================
 # Target rules for targets named reduce_v1
 
 # Build rule for target.
@@ -190,6 +203,33 @@ reduce_v1_interleaved_addressing.cu.s:
 	$(MAKE) -f CMakeFiles/reduce_v1.dir/build.make CMakeFiles/reduce_v1.dir/reduce_v1_interleaved_addressing.cu.s
 .PHONY : reduce_v1_interleaved_addressing.cu.s
 
+reduce_v2_bank_conflict.o: reduce_v2_bank_conflict.cu.o
+
+.PHONY : reduce_v2_bank_conflict.o
+
+# target to build an object file
+reduce_v2_bank_conflict.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v2.dir/build.make CMakeFiles/reduce_v2.dir/reduce_v2_bank_conflict.cu.o
+.PHONY : reduce_v2_bank_conflict.cu.o
+
+reduce_v2_bank_conflict.i: reduce_v2_bank_conflict.cu.i
+
+.PHONY : reduce_v2_bank_conflict.i
+
+# target to preprocess a source file
+reduce_v2_bank_conflict.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v2.dir/build.make CMakeFiles/reduce_v2.dir/reduce_v2_bank_conflict.cu.i
+.PHONY : reduce_v2_bank_conflict.cu.i
+
+reduce_v2_bank_conflict.s: reduce_v2_bank_conflict.cu.s
+
+.PHONY : reduce_v2_bank_conflict.s
+
+# target to generate assembly for a file
+reduce_v2_bank_conflict.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v2.dir/build.make CMakeFiles/reduce_v2.dir/reduce_v2_bank_conflict.cu.s
+.PHONY : reduce_v2_bank_conflict.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -197,6 +237,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... reduce_v2"
 	@echo "... reduce_v1"
 	@echo "... edit_cache"
 	@echo "... reduce_baseline"
@@ -206,6 +247,9 @@ help:
 	@echo "... reduce_v1_interleaved_addressing.o"
 	@echo "... reduce_v1_interleaved_addressing.i"
 	@echo "... reduce_v1_interleaved_addressing.s"
+	@echo "... reduce_v2_bank_conflict.o"
+	@echo "... reduce_v2_bank_conflict.i"
+	@echo "... reduce_v2_bank_conflict.s"
 .PHONY : help
 
 

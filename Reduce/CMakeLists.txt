@@ -31,12 +31,17 @@ link_directories(
     ${COMMON_LIB_DIRS}
 )
 
-# 1
+# v0
 add_executable(reduce_baseline
     reduce_baseline.cu
 )
 
-# 2
+# v1
 add_executable(reduce_v1
     reduce_v1_interleaved_addressing.cu
+)
+
+# v2
+add_executable(reduce_v2
+    reduce_v2_bank_conflict.cu
 )
