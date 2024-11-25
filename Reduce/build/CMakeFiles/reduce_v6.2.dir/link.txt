@@ -1,0 +1,1 @@
+/usr/bin/g++  "CMakeFiles/reduce_v6.2.dir/reduce_v6.2_grid&block_size.cu.o" -o app/reduce_v6.2  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl

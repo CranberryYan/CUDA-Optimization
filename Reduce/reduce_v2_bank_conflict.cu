@@ -99,9 +99,9 @@ int main() {
     cudaMemcpy(input_device, input_host, N * sizeof(float), cudaMemcpyHostToDevice);
 
     dim3 grid(N / BLOCK_SIZE);
-    dim3 blcok(BLOCK_SIZE);
+    dim3 block(BLOCK_SIZE);
     int block_num = (N + BLOCK_SIZE - 1) / BLOCK_SIZE; // 向上取整
-    reduce_v2<<<grid, blcok>>>(input_device, output_device);
+    reduce_v2<<<grid, block>>>(input_device, output_device);
     cudaMemcpy(output_host, output_device, block_num * sizeof(float), cudaMemcpyDeviceToHost);
     for (int i = 1; i < N / BLOCK_SIZE; ++i) {
         output_host[0] += output_host[i];

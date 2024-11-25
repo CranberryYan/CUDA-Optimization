@@ -111,6 +111,58 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named reduce_v7
+
+# Build rule for target.
+reduce_v7: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v7
+.PHONY : reduce_v7
+
+# fast build rule for target.
+reduce_v7/fast:
+	$(MAKE) -f CMakeFiles/reduce_v7.dir/build.make CMakeFiles/reduce_v7.dir/build
+.PHONY : reduce_v7/fast
+
+#=============================================================================
+# Target rules for targets named reduce_v6.2
+
+# Build rule for target.
+reduce_v6.2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v6.2
+.PHONY : reduce_v6.2
+
+# fast build rule for target.
+reduce_v6.2/fast:
+	$(MAKE) -f CMakeFiles/reduce_v6.2.dir/build.make CMakeFiles/reduce_v6.2.dir/build
+.PHONY : reduce_v6.2/fast
+
+#=============================================================================
+# Target rules for targets named reduce_v6.1
+
+# Build rule for target.
+reduce_v6.1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v6.1
+.PHONY : reduce_v6.1
+
+# fast build rule for target.
+reduce_v6.1/fast:
+	$(MAKE) -f CMakeFiles/reduce_v6.1.dir/build.make CMakeFiles/reduce_v6.1.dir/build
+.PHONY : reduce_v6.1/fast
+
+#=============================================================================
+# Target rules for targets named reduce_v6.0
+
+# Build rule for target.
+reduce_v6.0: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v6.0
+.PHONY : reduce_v6.0
+
+# fast build rule for target.
+reduce_v6.0/fast:
+	$(MAKE) -f CMakeFiles/reduce_v6.0.dir/build.make CMakeFiles/reduce_v6.0.dir/build
+.PHONY : reduce_v6.0/fast
+
+#=============================================================================
 # Target rules for targets named reduce_v5
 
 # Build rule for target.
@@ -350,12 +402,124 @@ reduce_v5_complete_unrolling.cu.s:
 	$(MAKE) -f CMakeFiles/reduce_v5.dir/build.make CMakeFiles/reduce_v5.dir/reduce_v5_complete_unrolling.cu.s
 .PHONY : reduce_v5_complete_unrolling.cu.s
 
+reduce_v6.0_grid&block_size.o: reduce_v6.0_grid&block_size.cu.o
+
+.PHONY : reduce_v6.0_grid&block_size.o
+
+# target to build an object file
+reduce_v6.0_grid&block_size.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v6.0.dir/build.make "CMakeFiles/reduce_v6.0.dir/reduce_v6.0_grid&block_size.cu.o"
+.PHONY : reduce_v6.0_grid&block_size.cu.o
+
+reduce_v6.0_grid&block_size.i: reduce_v6.0_grid&block_size.cu.i
+
+.PHONY : reduce_v6.0_grid&block_size.i
+
+# target to preprocess a source file
+reduce_v6.0_grid&block_size.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v6.0.dir/build.make "CMakeFiles/reduce_v6.0.dir/reduce_v6.0_grid&block_size.cu.i"
+.PHONY : reduce_v6.0_grid&block_size.cu.i
+
+reduce_v6.0_grid&block_size.s: reduce_v6.0_grid&block_size.cu.s
+
+.PHONY : reduce_v6.0_grid&block_size.s
+
+# target to generate assembly for a file
+reduce_v6.0_grid&block_size.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v6.0.dir/build.make "CMakeFiles/reduce_v6.0.dir/reduce_v6.0_grid&block_size.cu.s"
+.PHONY : reduce_v6.0_grid&block_size.cu.s
+
+reduce_v6.1_grid&block_size.o: reduce_v6.1_grid&block_size.cu.o
+
+.PHONY : reduce_v6.1_grid&block_size.o
+
+# target to build an object file
+reduce_v6.1_grid&block_size.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v6.1.dir/build.make "CMakeFiles/reduce_v6.1.dir/reduce_v6.1_grid&block_size.cu.o"
+.PHONY : reduce_v6.1_grid&block_size.cu.o
+
+reduce_v6.1_grid&block_size.i: reduce_v6.1_grid&block_size.cu.i
+
+.PHONY : reduce_v6.1_grid&block_size.i
+
+# target to preprocess a source file
+reduce_v6.1_grid&block_size.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v6.1.dir/build.make "CMakeFiles/reduce_v6.1.dir/reduce_v6.1_grid&block_size.cu.i"
+.PHONY : reduce_v6.1_grid&block_size.cu.i
+
+reduce_v6.1_grid&block_size.s: reduce_v6.1_grid&block_size.cu.s
+
+.PHONY : reduce_v6.1_grid&block_size.s
+
+# target to generate assembly for a file
+reduce_v6.1_grid&block_size.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v6.1.dir/build.make "CMakeFiles/reduce_v6.1.dir/reduce_v6.1_grid&block_size.cu.s"
+.PHONY : reduce_v6.1_grid&block_size.cu.s
+
+reduce_v6.2_grid&block_size.o: reduce_v6.2_grid&block_size.cu.o
+
+.PHONY : reduce_v6.2_grid&block_size.o
+
+# target to build an object file
+reduce_v6.2_grid&block_size.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v6.2.dir/build.make "CMakeFiles/reduce_v6.2.dir/reduce_v6.2_grid&block_size.cu.o"
+.PHONY : reduce_v6.2_grid&block_size.cu.o
+
+reduce_v6.2_grid&block_size.i: reduce_v6.2_grid&block_size.cu.i
+
+.PHONY : reduce_v6.2_grid&block_size.i
+
+# target to preprocess a source file
+reduce_v6.2_grid&block_size.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v6.2.dir/build.make "CMakeFiles/reduce_v6.2.dir/reduce_v6.2_grid&block_size.cu.i"
+.PHONY : reduce_v6.2_grid&block_size.cu.i
+
+reduce_v6.2_grid&block_size.s: reduce_v6.2_grid&block_size.cu.s
+
+.PHONY : reduce_v6.2_grid&block_size.s
+
+# target to generate assembly for a file
+reduce_v6.2_grid&block_size.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v6.2.dir/build.make "CMakeFiles/reduce_v6.2.dir/reduce_v6.2_grid&block_size.cu.s"
+.PHONY : reduce_v6.2_grid&block_size.cu.s
+
+reduce_v7_shfl_down_sync.o: reduce_v7_shfl_down_sync.cu.o
+
+.PHONY : reduce_v7_shfl_down_sync.o
+
+# target to build an object file
+reduce_v7_shfl_down_sync.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v7.dir/build.make CMakeFiles/reduce_v7.dir/reduce_v7_shfl_down_sync.cu.o
+.PHONY : reduce_v7_shfl_down_sync.cu.o
+
+reduce_v7_shfl_down_sync.i: reduce_v7_shfl_down_sync.cu.i
+
+.PHONY : reduce_v7_shfl_down_sync.i
+
+# target to preprocess a source file
+reduce_v7_shfl_down_sync.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v7.dir/build.make CMakeFiles/reduce_v7.dir/reduce_v7_shfl_down_sync.cu.i
+.PHONY : reduce_v7_shfl_down_sync.cu.i
+
+reduce_v7_shfl_down_sync.s: reduce_v7_shfl_down_sync.cu.s
+
+.PHONY : reduce_v7_shfl_down_sync.s
+
+# target to generate assembly for a file
+reduce_v7_shfl_down_sync.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v7.dir/build.make CMakeFiles/reduce_v7.dir/reduce_v7_shfl_down_sync.cu.s
+.PHONY : reduce_v7_shfl_down_sync.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... reduce_v7"
+	@echo "... reduce_v6.2"
+	@echo "... reduce_v6.1"
+	@echo "... reduce_v6.0"
 	@echo "... reduce_v5"
 	@echo "... rebuild_cache"
 	@echo "... reduce_v4"
@@ -382,6 +546,18 @@ help:
 	@echo "... reduce_v5_complete_unrolling.o"
 	@echo "... reduce_v5_complete_unrolling.i"
 	@echo "... reduce_v5_complete_unrolling.s"
+	@echo "... reduce_v6.0_grid&block_size.o"
+	@echo "... reduce_v6.0_grid&block_size.i"
+	@echo "... reduce_v6.0_grid&block_size.s"
+	@echo "... reduce_v6.1_grid&block_size.o"
+	@echo "... reduce_v6.1_grid&block_size.i"
+	@echo "... reduce_v6.1_grid&block_size.s"
+	@echo "... reduce_v6.2_grid&block_size.o"
+	@echo "... reduce_v6.2_grid&block_size.i"
+	@echo "... reduce_v6.2_grid&block_size.s"
+	@echo "... reduce_v7_shfl_down_sync.o"
+	@echo "... reduce_v7_shfl_down_sync.i"
+	@echo "... reduce_v7_shfl_down_sync.s"
 .PHONY : help
 
 

@@ -60,3 +60,23 @@ add_executable(reduce_v4
 add_executable(reduce_v5
     reduce_v5_complete_unrolling.cu
 )
+
+# v6.0
+add_executable(reduce_v6.0
+    reduce_v6.0_grid&block_size.cu
+)
+
+# v6.1
+add_executable(reduce_v6.1
+    reduce_v6.1_grid&block_size.cu
+)
+
+# v6.2
+add_executable(reduce_v6.2
+    reduce_v6.2_grid&block_size.cu
+)
+
+# v7
+add_executable(reduce_v7
+    reduce_v7_shfl_down_sync.cu
+)
