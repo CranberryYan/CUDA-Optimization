@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named reduce_v5
+
+# Build rule for target.
+reduce_v5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v5
+.PHONY : reduce_v5
+
+# fast build rule for target.
+reduce_v5/fast:
+	$(MAKE) -f CMakeFiles/reduce_v5.dir/build.make CMakeFiles/reduce_v5.dir/build
+.PHONY : reduce_v5/fast
+
+#=============================================================================
+# Target rules for targets named reduce_v4
+
+# Build rule for target.
+reduce_v4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v4
+.PHONY : reduce_v4
+
+# fast build rule for target.
+reduce_v4/fast:
+	$(MAKE) -f CMakeFiles/reduce_v4.dir/build.make CMakeFiles/reduce_v4.dir/build
+.PHONY : reduce_v4/fast
+
+#=============================================================================
 # Target rules for targets named reduce_v3
 
 # Build rule for target.
@@ -270,13 +296,69 @@ reduce_v3_Idel_thread.cu.s:
 	$(MAKE) -f CMakeFiles/reduce_v3.dir/build.make CMakeFiles/reduce_v3.dir/reduce_v3_Idel_thread.cu.s
 .PHONY : reduce_v3_Idel_thread.cu.s
 
+reduce_v4_unrolling_the_last_warp.o: reduce_v4_unrolling_the_last_warp.cu.o
+
+.PHONY : reduce_v4_unrolling_the_last_warp.o
+
+# target to build an object file
+reduce_v4_unrolling_the_last_warp.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v4.dir/build.make CMakeFiles/reduce_v4.dir/reduce_v4_unrolling_the_last_warp.cu.o
+.PHONY : reduce_v4_unrolling_the_last_warp.cu.o
+
+reduce_v4_unrolling_the_last_warp.i: reduce_v4_unrolling_the_last_warp.cu.i
+
+.PHONY : reduce_v4_unrolling_the_last_warp.i
+
+# target to preprocess a source file
+reduce_v4_unrolling_the_last_warp.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v4.dir/build.make CMakeFiles/reduce_v4.dir/reduce_v4_unrolling_the_last_warp.cu.i
+.PHONY : reduce_v4_unrolling_the_last_warp.cu.i
+
+reduce_v4_unrolling_the_last_warp.s: reduce_v4_unrolling_the_last_warp.cu.s
+
+.PHONY : reduce_v4_unrolling_the_last_warp.s
+
+# target to generate assembly for a file
+reduce_v4_unrolling_the_last_warp.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v4.dir/build.make CMakeFiles/reduce_v4.dir/reduce_v4_unrolling_the_last_warp.cu.s
+.PHONY : reduce_v4_unrolling_the_last_warp.cu.s
+
+reduce_v5_complete_unrolling.o: reduce_v5_complete_unrolling.cu.o
+
+.PHONY : reduce_v5_complete_unrolling.o
+
+# target to build an object file
+reduce_v5_complete_unrolling.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v5.dir/build.make CMakeFiles/reduce_v5.dir/reduce_v5_complete_unrolling.cu.o
+.PHONY : reduce_v5_complete_unrolling.cu.o
+
+reduce_v5_complete_unrolling.i: reduce_v5_complete_unrolling.cu.i
+
+.PHONY : reduce_v5_complete_unrolling.i
+
+# target to preprocess a source file
+reduce_v5_complete_unrolling.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v5.dir/build.make CMakeFiles/reduce_v5.dir/reduce_v5_complete_unrolling.cu.i
+.PHONY : reduce_v5_complete_unrolling.cu.i
+
+reduce_v5_complete_unrolling.s: reduce_v5_complete_unrolling.cu.s
+
+.PHONY : reduce_v5_complete_unrolling.s
+
+# target to generate assembly for a file
+reduce_v5_complete_unrolling.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v5.dir/build.make CMakeFiles/reduce_v5.dir/reduce_v5_complete_unrolling.cu.s
+.PHONY : reduce_v5_complete_unrolling.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... reduce_v5"
 	@echo "... rebuild_cache"
+	@echo "... reduce_v4"
 	@echo "... reduce_v3"
 	@echo "... reduce_v2"
 	@echo "... reduce_v1"
@@ -294,6 +376,12 @@ help:
 	@echo "... reduce_v3_Idel_thread.o"
 	@echo "... reduce_v3_Idel_thread.i"
 	@echo "... reduce_v3_Idel_thread.s"
+	@echo "... reduce_v4_unrolling_the_last_warp.o"
+	@echo "... reduce_v4_unrolling_the_last_warp.i"
+	@echo "... reduce_v4_unrolling_the_last_warp.s"
+	@echo "... reduce_v5_complete_unrolling.o"
+	@echo "... reduce_v5_complete_unrolling.i"
+	@echo "... reduce_v5_complete_unrolling.s"
 .PHONY : help
 
 

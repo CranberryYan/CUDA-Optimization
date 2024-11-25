@@ -1,8 +1,10 @@
 // 针对warp divergent
 // v0运行时间: 933.44us
 // v0带宽利用率: 62.67%
+// v0内存吞吐量: 144.33GB/s
 // v1运行时间: 675.90us
 // v1带宽利用率: 86.46%
+// v1内存吞吐量: 199.35GB/s
 
 #include <cuda.h>
 #include <cuda_runtime.h>

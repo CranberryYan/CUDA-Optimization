@@ -1,0 +1,1 @@
+/usr/bin/g++  CMakeFiles/reduce_v5.dir/reduce_v5_complete_unrolling.cu.o -o app/reduce_v5  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl

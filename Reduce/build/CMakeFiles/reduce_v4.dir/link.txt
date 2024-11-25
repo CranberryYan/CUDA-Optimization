@@ -1,0 +1,1 @@
+/usr/bin/g++  CMakeFiles/reduce_v4.dir/reduce_v4_unrolling_the_last_warp.cu.o -o app/reduce_v4  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl

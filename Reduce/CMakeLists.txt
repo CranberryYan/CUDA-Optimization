@@ -50,3 +50,13 @@ add_executable(reduce_v2
 add_executable(reduce_v3
     reduce_v3_Idel_thread.cu
 )
+
+# v4
+add_executable(reduce_v4
+    reduce_v4_unrolling_the_last_warp.cu
+)
+
+# v5
+add_executable(reduce_v5
+    reduce_v5_complete_unrolling.cu
+)

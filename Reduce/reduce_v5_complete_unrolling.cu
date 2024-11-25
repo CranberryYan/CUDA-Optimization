@@ -1,4 +1,4 @@
-// 减少Idel_thread
+// 展开循环
 // v0运行时间: 933.44us
 // v0带宽利用率: 62.67%
 // v0内存吞吐量: 144.33GB/s
@@ -11,6 +11,16 @@
 // v3运行时间: 337.25us
 // v3带宽利用率: 89.86%
 // v3内存吞吐量: 398.79GB/s
+// v4运行时间: 199.33us
+// v4带宽利用率: 92.26%
+// v4内存吞吐量: 674.85GB/s(比较接近790GB/s的理论值)
+// v4: L1/TEX Cache Throughput [%]	68.56
+// v4: L1/TEX Hit Rate [%]	0.27
+// v5运行时间: 196.67us
+// v5带宽利用率: 93.59%
+// v5内存吞吐量: 683.72GB/s(比较接近790GB/s的理论值)
+// v5: L1/TEX Cache Throughput [%]	69.61
+// v5: L1/TEX Hit Rate [%]	0.35
 
 #include <cuda.h>
 #include <cuda_runtime.h>
@@ -35,7 +45,18 @@ bool checkout(float output_, float output_host) {
     }
 }
 
-__global__ void reduce_v3(float *g_idata, float *g_odata) {
+template<unsigned int blockSize>
+__device__ void warpReduce(volatile float *smem, int tid) {
+    if(blockSize >= 64)smem[tid] += smem[tid + 32];
+    if(blockSize >= 32)smem[tid] += smem[tid + 16];
+    if(blockSize >= 16)smem[tid] += smem[tid + 8];
+    if(blockSize >= 8)smem[tid] += smem[tid + 4];
+    if(blockSize >= 4)smem[tid] += smem[tid + 2];
+    if(blockSize >= 2)smem[tid] += smem[tid + 1];
+}
+
+template<unsigned int blockSize>
+__global__ void reduce_v5(float *g_idata, float *g_odata) {
     
     // 256 * 32/8 = 1024Byte -> 1KB
     // 3080: 单个SM的L1 cache 128KB
@@ -52,13 +73,30 @@ __global__ void reduce_v3(float *g_idata, float *g_odata) {
     smem[tid] = g_idata[gid] + g_idata[gid + blockDim.x];
     __syncthreads(); // 使用smem, 同步
 
-    for (unsigned int i = blockDim.x / 2; i > 0; i >>= 1) {
-        if (tid < i) {
-            smem[tid] += smem[tid + i];
+    // do reduction in shared mem
+    if(blockSize >= 512){
+        if(tid < 256){
+            smem[tid] += smem[tid + 256];
         }
         __syncthreads();
     }
-
+    if(blockSize >= 256){
+        if(tid < 128){
+            smem[tid] += smem[tid + 128];
+        }
+        __syncthreads();
+    }
+    if(blockSize >= 128){
+        if(tid < 64){
+            smem[tid] += smem[tid + 64];
+        }
+        __syncthreads();
+    }
+    
+    // write result for this block to global mem
+    if(tid < 32) {
+        warpReduce<blockSize>(smem, tid);
+    }
     if (tid == 0) {
         // 写回每个block的sum
         g_odata[blockIdx.x] = smem[0];
@@ -80,7 +118,7 @@ int main() {
     int block_num = (N + BLOCK_SIZE - 1) / BLOCK_SIZE / 2; // 向上取整
     dim3 grid(block_num);
     dim3 blcok(BLOCK_SIZE);
-    reduce_v3<<<grid, blcok>>>(input_device, output_device);
+    reduce_v5<BLOCK_SIZE><<<grid, blcok>>>(input_device, output_device);
     cudaMemcpy(output_host, output_device, block_num * sizeof(float), cudaMemcpyDeviceToHost);
     for (int i = 1; i < N / BLOCK_SIZE; ++i) {
         output_host[0] += output_host[i];
