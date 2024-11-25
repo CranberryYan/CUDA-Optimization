@@ -45,3 +45,8 @@ add_executable(reduce_v1
 add_executable(reduce_v2
     reduce_v2_bank_conflict.cu
 )
+
+# v3
+add_executable(reduce_v3
+    reduce_v3_Idel_thread.cu
+)

@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named reduce_v3
+
+# Build rule for target.
+reduce_v3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v3
+.PHONY : reduce_v3
+
+# fast build rule for target.
+reduce_v3/fast:
+	$(MAKE) -f CMakeFiles/reduce_v3.dir/build.make CMakeFiles/reduce_v3.dir/build
+.PHONY : reduce_v3/fast
+
+#=============================================================================
 # Target rules for targets named reduce_v2
 
 # Build rule for target.
@@ -230,6 +243,33 @@ reduce_v2_bank_conflict.cu.s:
 	$(MAKE) -f CMakeFiles/reduce_v2.dir/build.make CMakeFiles/reduce_v2.dir/reduce_v2_bank_conflict.cu.s
 .PHONY : reduce_v2_bank_conflict.cu.s
 
+reduce_v3_Idel_thread.o: reduce_v3_Idel_thread.cu.o
+
+.PHONY : reduce_v3_Idel_thread.o
+
+# target to build an object file
+reduce_v3_Idel_thread.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v3.dir/build.make CMakeFiles/reduce_v3.dir/reduce_v3_Idel_thread.cu.o
+.PHONY : reduce_v3_Idel_thread.cu.o
+
+reduce_v3_Idel_thread.i: reduce_v3_Idel_thread.cu.i
+
+.PHONY : reduce_v3_Idel_thread.i
+
+# target to preprocess a source file
+reduce_v3_Idel_thread.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v3.dir/build.make CMakeFiles/reduce_v3.dir/reduce_v3_Idel_thread.cu.i
+.PHONY : reduce_v3_Idel_thread.cu.i
+
+reduce_v3_Idel_thread.s: reduce_v3_Idel_thread.cu.s
+
+.PHONY : reduce_v3_Idel_thread.s
+
+# target to generate assembly for a file
+reduce_v3_Idel_thread.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v3.dir/build.make CMakeFiles/reduce_v3.dir/reduce_v3_Idel_thread.cu.s
+.PHONY : reduce_v3_Idel_thread.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,6 +277,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... reduce_v3"
 	@echo "... reduce_v2"
 	@echo "... reduce_v1"
 	@echo "... edit_cache"
@@ -250,6 +291,9 @@ help:
 	@echo "... reduce_v2_bank_conflict.o"
 	@echo "... reduce_v2_bank_conflict.i"
 	@echo "... reduce_v2_bank_conflict.s"
+	@echo "... reduce_v3_Idel_thread.o"
+	@echo "... reduce_v3_Idel_thread.i"
+	@echo "... reduce_v3_Idel_thread.s"
 .PHONY : help
 
 

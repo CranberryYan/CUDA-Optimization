@@ -28,7 +28,7 @@ bool checkout(float output_, float output_host) {
     }
 }
 
-__global__ void reduce_v0(float *g_idata, float *g_odata) {
+__global__ void reduce_v1(float *g_idata, float *g_odata) {
     
     // 256 * 32/8 = 1024Byte -> 1KB
     // 3080: 单个SM的L1 cache 128KB
@@ -80,7 +80,7 @@ int main() {
     dim3 grid(N / BLOCK_SIZE);
     dim3 blcok(BLOCK_SIZE);
     int block_num = (N + BLOCK_SIZE - 1) / BLOCK_SIZE; // 向上取整
-    reduce_v0<<<grid, blcok>>>(input_device, output_device);
+    reduce_v1<<<grid, blcok>>>(input_device, output_device);
     cudaMemcpy(output_host, output_device, block_num * sizeof(float), cudaMemcpyDeviceToHost);
     for (int i = 1; i < N / BLOCK_SIZE; ++i) {
         output_host[0] += output_host[i];
