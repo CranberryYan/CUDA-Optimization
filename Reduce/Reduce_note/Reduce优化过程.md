@@ -17,5 +17,8 @@
 	虽然有if-else分支，但是此时的if分支是满足的进入代码块，不满足的什么也不做，而不是进入其他代码块，因此不会造成太大的性能影响，但是还是会造成性能浪费，因为有很多空闲线程，所以还是要避免
 	
 改进措施：
-	1. 避免warp divergent
-	2. 不使用%
+	v1. 避免warp divergent，不使用%
+	v2. 减少bank conflict
+	v3. 减少Idel thread，提高利用率
+	v4. 展开最后一个warp的for循环
+	v5. 展开所有warp的for循环  
