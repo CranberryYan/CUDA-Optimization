@@ -3,7 +3,7 @@ triton文件生成并使用ui界面分析 .ncu-rep 流程:
 源码:
 ![[Pasted image 20241122152806.png]]
 Night Compute分析:
-1. GPU Spedd of Light Throughtput
+1. GPU Speed of Light Throughtput
 ![[Pasted image 20241122152919.png]]
 	可以看出, L1 和 L2 利用率不高, 并且Memory > Compute, 说明是访存密集型算子
 	eg: x: [H, W]
