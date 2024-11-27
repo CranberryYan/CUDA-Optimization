@@ -1,0 +1,3 @@
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/rebuild_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/edit_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_baseline.dir
