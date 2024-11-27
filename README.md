@@ -1,4 +1,5 @@
 # CUDA-Optimization
+一、Compute基本使用方法及参数意义
 triton文件生成并使用ui界面分析 .ncu-rep 流程:
 ![[Pasted image 20241122152717.png]]
 源码:
