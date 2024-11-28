@@ -128,6 +128,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+<<<<<<< HEAD
   "CMakeFiles/elementwise_dotmul_baseline.dir/DependInfo.cmake"
   "CMakeFiles/elementwise_relu_baseline.dir/DependInfo.cmake"
+=======
+  "CMakeFiles/elementwise_baseline.dir/DependInfo.cmake"
+>>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
   )

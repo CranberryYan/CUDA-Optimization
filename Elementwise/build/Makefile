@@ -111,6 +111,7 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+<<<<<<< HEAD
 # Target rules for targets named elementwise_dotmul_baseline
 
 # Build rule for target.
@@ -189,6 +190,46 @@ elementwise_relu_baseline.s: elementwise_relu_baseline.cu.s
 elementwise_relu_baseline.cu.s:
 	$(MAKE) -f CMakeFiles/elementwise_relu_baseline.dir/build.make CMakeFiles/elementwise_relu_baseline.dir/elementwise_relu_baseline.cu.s
 .PHONY : elementwise_relu_baseline.cu.s
+=======
+# Target rules for targets named elementwise_baseline
+
+# Build rule for target.
+elementwise_baseline: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 elementwise_baseline
+.PHONY : elementwise_baseline
+
+# fast build rule for target.
+elementwise_baseline/fast:
+	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/build
+.PHONY : elementwise_baseline/fast
+
+elementwise_baseline.o: elementwise_baseline.cu.o
+
+.PHONY : elementwise_baseline.o
+
+# target to build an object file
+elementwise_baseline.cu.o:
+	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/elementwise_baseline.cu.o
+.PHONY : elementwise_baseline.cu.o
+
+elementwise_baseline.i: elementwise_baseline.cu.i
+
+.PHONY : elementwise_baseline.i
+
+# target to preprocess a source file
+elementwise_baseline.cu.i:
+	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/elementwise_baseline.cu.i
+.PHONY : elementwise_baseline.cu.i
+
+elementwise_baseline.s: elementwise_baseline.cu.s
+
+.PHONY : elementwise_baseline.s
+
+# target to generate assembly for a file
+elementwise_baseline.cu.s:
+	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/elementwise_baseline.cu.s
+.PHONY : elementwise_baseline.cu.s
+>>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
 
 # Help Target
 help:
@@ -198,6 +239,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+<<<<<<< HEAD
 	@echo "... elementwise_dotmul_baseline"
 	@echo "... elementwise_relu_baseline"
 	@echo "... elementwise_dotmul_baseline.o"
@@ -206,6 +248,12 @@ help:
 	@echo "... elementwise_relu_baseline.o"
 	@echo "... elementwise_relu_baseline.i"
 	@echo "... elementwise_relu_baseline.s"
+=======
+	@echo "... elementwise_baseline"
+	@echo "... elementwise_baseline.o"
+	@echo "... elementwise_baseline.i"
+	@echo "... elementwise_baseline.s"
+>>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
 .PHONY : help
 
 
