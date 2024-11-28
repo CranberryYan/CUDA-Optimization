@@ -118,6 +118,10 @@ int main() {
         std::cout << "FAILED!" << std::endl;
     }
 
+    free(input_host);
+    free(output_host);
+    cudaFree(input_device);
+    cudaFree(output_device);
 
     return 0;
 }

@@ -2,12 +2,35 @@
     "extension": "ncu-proj",
     "files": [
         {
-            "is_open": true,
-            "path": "reduce.ncu-proj.ncu-rep"
+            "path": "../../build/app/reduce_v1.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_baseline.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v2.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v3.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v4.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v5.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v6.0.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v6.1.ncu-rep"
+        },
+        {
+            "path": "../../build/app/reduce_v6.2.ncu-rep"
         },
         {
             "is_open": true,
-            "path": "../../build/app/reduce_v1.ncu-rep"
+            "path": "../../build/app/reduce_v7.ncu-rep"
         }
     ],
     "launcher": {
@@ -43,7 +66,7 @@
         "activity/profile/launchskipcount": "0",
         "activity/profile/metrics": "",
         "activity/profile/nvtxincludeexcludeoptions": "",
-        "activity/profile/outputfile": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v1",
+        "activity/profile/outputfile": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v7",
         "activity/profile/rangereplayoptions": "",
         "activity/profile/replaymode": "Kernel",
         "activity/profile/samplingBufferSize": "33554432",
@@ -62,10 +85,18 @@
         "platform/linux/arguments": "",
         "platform/linux/autoconnect": true,
         "platform/linux/environment": "",
-        "platform/linux/executable": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v1",
+        "platform/linux/executable": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v7",
         "platform/linux/executable/history": [
-            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v1",
-            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_baseline"
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v7",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v6.2",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v6.1",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v6.0",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v5",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v4",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v3",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v2",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_baseline",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app/reduce_v1"
         ],
         "platform/linux/workingdir": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/build/app",
         "platform/linux/workingdir/history": [

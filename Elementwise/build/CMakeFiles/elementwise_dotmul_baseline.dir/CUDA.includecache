@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/elementwise_dotmul_baseline.cu
+time.h
+-
+iostream
+-
+algorithm
+-
+cuda.h
+-
+cuda_runtime.h
+-
+

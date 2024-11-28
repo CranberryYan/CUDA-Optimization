@@ -101,6 +101,10 @@ int main() {
         std::cout << "GPU: " << output_host[0] << std::endl;
     }
 
+    free(input_host);
+    free(output_host);
+    cudaFree(input_device);
+    cudaFree(output_device);
 
     return 0;
 }
