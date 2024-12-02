@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/yst/miniconda3/lib/python3.8/site-packages/nvidia/cuda_runtime/include",
+                "/home/yst/下载/TensorRT-8.6.1.6/include",
+                "/usr/local/cuda-11.8/targets/x86_64-linux/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

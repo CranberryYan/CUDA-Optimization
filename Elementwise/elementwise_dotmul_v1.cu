@@ -1,4 +1,5 @@
-// baseline
+// 向量化
+// v0: 580.19us
 // v0: Memory Throughput [%]	95.31
 // v0: Memory Throughput [Gbyte/second]	702.51
 
@@ -51,9 +52,17 @@ template<typename T>
 __global__ void dotmul(T *input1, T *input2, T *input3, T *output) {
     MultiplyFunctor<T> dotmul;
     int gid = blockIdx.x * blockDim.x + threadIdx.x;
-    if (gid < N) {
-        output[gid] = dotmul(input1[gid], input2[gid], input3[gid]);
+    if (gid * 4 > N) {
+        return;
     }
+    float4 in1 = reinterpret_cast<float4*>(input1)[gid];
+    float4 in2 = reinterpret_cast<float4*>(input2)[gid];
+    float4 in3 = reinterpret_cast<float4*>(input3)[gid];
+
+    output[gid * 4 + 0] = dotmul(in1.x, in2.x, in3.x);
+    output[gid * 4 + 1] = dotmul(in1.y, in2.y, in3.y);
+    output[gid * 4 + 2] = dotmul(in1.z, in2.z, in3.z);
+    output[gid * 4 + 3] = dotmul(in1.w, in2.w, in3.w);
 }
 
 int main() {

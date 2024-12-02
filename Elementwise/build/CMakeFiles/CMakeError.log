@@ -1,21 +1,21 @@
 Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_36f86/fast && /usr/bin/make -f CMakeFiles/cmTC_36f86.dir/build.make CMakeFiles/cmTC_36f86.dir/build
+Run Build Command(s):/usr/bin/make cmTC_a1edb/fast && /usr/bin/make -f CMakeFiles/cmTC_a1edb.dir/build.make CMakeFiles/cmTC_a1edb.dir/build
 make[1]: 进入目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_36f86.dir/src.cxx.o
-/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_36f86.dir/src.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_36f86
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36f86.dir/link.txt --verbose=1
-/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_36f86.dir/src.cxx.o  -o cmTC_36f86 
-/usr/bin/ld: CMakeFiles/cmTC_36f86.dir/src.cxx.o: in function `main':
+Building CXX object CMakeFiles/cmTC_a1edb.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_a1edb.dir/src.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a1edb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1edb.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_a1edb.dir/src.cxx.o  -o cmTC_a1edb 
+/usr/bin/ld: CMakeFiles/cmTC_a1edb.dir/src.cxx.o: in function `main':
 src.cxx:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.cxx:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_36f86.dir/build.make:87：cmTC_36f86] 错误 1
+make[1]: *** [CMakeFiles/cmTC_a1edb.dir/build.make:87：cmTC_a1edb] 错误 1
 make[1]: 离开目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_36f86/fast] 错误 2
+make: *** [Makefile:121：cmTC_a1edb/fast] 错误 2
 
 
 Source file was:
@@ -41,18 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_da4fb/fast && /usr/bin/make -f CMakeFiles/cmTC_da4fb.dir/build.make CMakeFiles/cmTC_da4fb.dir/build
+Run Build Command(s):/usr/bin/make cmTC_23055/fast && /usr/bin/make -f CMakeFiles/cmTC_23055.dir/build.make CMakeFiles/cmTC_23055.dir/build
 make[1]: 进入目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_da4fb.dir/CheckFunctionExists.cxx.o
-/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_da4fb.dir/CheckFunctionExists.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_da4fb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da4fb.dir/link.txt --verbose=1
-/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_da4fb.dir/CheckFunctionExists.cxx.o  -o cmTC_da4fb  -lpthreads 
+Building CXX object CMakeFiles/cmTC_23055.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_23055.dir/CheckFunctionExists.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_23055
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23055.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_23055.dir/CheckFunctionExists.cxx.o  -o cmTC_23055  -lpthreads 
 /usr/bin/ld: 找不到 -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_da4fb.dir/build.make:87：cmTC_da4fb] 错误 1
+make[1]: *** [CMakeFiles/cmTC_23055.dir/build.make:87：cmTC_23055] 错误 1
 make[1]: 离开目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_da4fb/fast] 错误 2
+make: *** [Makefile:121：cmTC_23055/fast] 错误 2
 
 
 

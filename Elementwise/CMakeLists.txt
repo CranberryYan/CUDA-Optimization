@@ -55,3 +55,8 @@ add_executable(elementwise_relu_v3
 add_executable(elementwise_dotmul_baseline
     elementwise_dotmul_baseline.cu
 )
+
+# v0
+add_executable(elementwise_dotmul_v1
+    elementwise_dotmul_v1.cu
+)

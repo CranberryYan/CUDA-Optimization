@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named elementwise_dotmul_v1
+
+# Build rule for target.
+elementwise_dotmul_v1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 elementwise_dotmul_v1
+.PHONY : elementwise_dotmul_v1
+
+# fast build rule for target.
+elementwise_dotmul_v1/fast:
+	$(MAKE) -f CMakeFiles/elementwise_dotmul_v1.dir/build.make CMakeFiles/elementwise_dotmul_v1.dir/build
+.PHONY : elementwise_dotmul_v1/fast
+
+#=============================================================================
 # Target rules for targets named elementwise_dotmul_baseline
 
 # Build rule for target.
@@ -201,6 +214,33 @@ elementwise_dotmul_baseline.s: elementwise_dotmul_baseline.cu.s
 elementwise_dotmul_baseline.cu.s:
 	$(MAKE) -f CMakeFiles/elementwise_dotmul_baseline.dir/build.make CMakeFiles/elementwise_dotmul_baseline.dir/elementwise_dotmul_baseline.cu.s
 .PHONY : elementwise_dotmul_baseline.cu.s
+
+elementwise_dotmul_v1.o: elementwise_dotmul_v1.cu.o
+
+.PHONY : elementwise_dotmul_v1.o
+
+# target to build an object file
+elementwise_dotmul_v1.cu.o:
+	$(MAKE) -f CMakeFiles/elementwise_dotmul_v1.dir/build.make CMakeFiles/elementwise_dotmul_v1.dir/elementwise_dotmul_v1.cu.o
+.PHONY : elementwise_dotmul_v1.cu.o
+
+elementwise_dotmul_v1.i: elementwise_dotmul_v1.cu.i
+
+.PHONY : elementwise_dotmul_v1.i
+
+# target to preprocess a source file
+elementwise_dotmul_v1.cu.i:
+	$(MAKE) -f CMakeFiles/elementwise_dotmul_v1.dir/build.make CMakeFiles/elementwise_dotmul_v1.dir/elementwise_dotmul_v1.cu.i
+.PHONY : elementwise_dotmul_v1.cu.i
+
+elementwise_dotmul_v1.s: elementwise_dotmul_v1.cu.s
+
+.PHONY : elementwise_dotmul_v1.s
+
+# target to generate assembly for a file
+elementwise_dotmul_v1.cu.s:
+	$(MAKE) -f CMakeFiles/elementwise_dotmul_v1.dir/build.make CMakeFiles/elementwise_dotmul_v1.dir/elementwise_dotmul_v1.cu.s
+.PHONY : elementwise_dotmul_v1.cu.s
 
 elementwise_relu_baseline.o: elementwise_relu_baseline.cu.o
 
@@ -317,6 +357,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... elementwise_dotmul_v1"
 	@echo "... elementwise_dotmul_baseline"
 	@echo "... rebuild_cache"
 	@echo "... elementwise_relu_v2"
@@ -326,6 +367,9 @@ help:
 	@echo "... elementwise_dotmul_baseline.o"
 	@echo "... elementwise_dotmul_baseline.i"
 	@echo "... elementwise_dotmul_baseline.s"
+	@echo "... elementwise_dotmul_v1.o"
+	@echo "... elementwise_dotmul_v1.i"
+	@echo "... elementwise_dotmul_v1.s"
 	@echo "... elementwise_relu_baseline.o"
 	@echo "... elementwise_relu_baseline.i"
 	@echo "... elementwise_relu_baseline.s"
