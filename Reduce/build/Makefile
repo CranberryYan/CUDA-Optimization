@@ -189,6 +189,19 @@ reduce_v4/fast:
 .PHONY : reduce_v4/fast
 
 #=============================================================================
+# Target rules for targets named reduce_v8
+
+# Build rule for target.
+reduce_v8: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 reduce_v8
+.PHONY : reduce_v8
+
+# fast build rule for target.
+reduce_v8/fast:
+	$(MAKE) -f CMakeFiles/reduce_v8.dir/build.make CMakeFiles/reduce_v8.dir/build
+.PHONY : reduce_v8/fast
+
+#=============================================================================
 # Target rules for targets named reduce_v3
 
 # Build rule for target.
@@ -510,6 +523,33 @@ reduce_v7_shfl_down_sync.cu.s:
 	$(MAKE) -f CMakeFiles/reduce_v7.dir/build.make CMakeFiles/reduce_v7.dir/reduce_v7_shfl_down_sync.cu.s
 .PHONY : reduce_v7_shfl_down_sync.cu.s
 
+reduce_v8_half.o: reduce_v8_half.cu.o
+
+.PHONY : reduce_v8_half.o
+
+# target to build an object file
+reduce_v8_half.cu.o:
+	$(MAKE) -f CMakeFiles/reduce_v8.dir/build.make CMakeFiles/reduce_v8.dir/reduce_v8_half.cu.o
+.PHONY : reduce_v8_half.cu.o
+
+reduce_v8_half.i: reduce_v8_half.cu.i
+
+.PHONY : reduce_v8_half.i
+
+# target to preprocess a source file
+reduce_v8_half.cu.i:
+	$(MAKE) -f CMakeFiles/reduce_v8.dir/build.make CMakeFiles/reduce_v8.dir/reduce_v8_half.cu.i
+.PHONY : reduce_v8_half.cu.i
+
+reduce_v8_half.s: reduce_v8_half.cu.s
+
+.PHONY : reduce_v8_half.s
+
+# target to generate assembly for a file
+reduce_v8_half.cu.s:
+	$(MAKE) -f CMakeFiles/reduce_v8.dir/build.make CMakeFiles/reduce_v8.dir/reduce_v8_half.cu.s
+.PHONY : reduce_v8_half.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -523,6 +563,7 @@ help:
 	@echo "... reduce_v5"
 	@echo "... rebuild_cache"
 	@echo "... reduce_v4"
+	@echo "... reduce_v8"
 	@echo "... reduce_v3"
 	@echo "... reduce_v2"
 	@echo "... reduce_v1"
@@ -558,6 +599,9 @@ help:
 	@echo "... reduce_v7_shfl_down_sync.o"
 	@echo "... reduce_v7_shfl_down_sync.i"
 	@echo "... reduce_v7_shfl_down_sync.s"
+	@echo "... reduce_v8_half.o"
+	@echo "... reduce_v8_half.i"
+	@echo "... reduce_v8_half.s"
 .PHONY : help
 
 

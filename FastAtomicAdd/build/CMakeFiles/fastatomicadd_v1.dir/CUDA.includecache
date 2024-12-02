@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/fastatomicadd_v1.cu
+iostream
+-
+cstdlib
+-
+cuda_runtime.h
+-
+
