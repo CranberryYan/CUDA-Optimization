@@ -1,8 +1,7 @@
-/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/rebuild_cache.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/edit_cache.dir
-<<<<<<< HEAD
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_dotmul_baseline.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/rebuild_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_relu_v2.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_relu_v1.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_relu_v3.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_relu_baseline.dir
-=======
-/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/elementwise_baseline.dir
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332

@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Element
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,7 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-<<<<<<< HEAD
 # Target rules for targets named elementwise_dotmul_baseline
 
 # Build rule for target.
@@ -123,6 +122,45 @@ elementwise_dotmul_baseline: cmake_check_build_system
 elementwise_dotmul_baseline/fast:
 	$(MAKE) -f CMakeFiles/elementwise_dotmul_baseline.dir/build.make CMakeFiles/elementwise_dotmul_baseline.dir/build
 .PHONY : elementwise_dotmul_baseline/fast
+
+#=============================================================================
+# Target rules for targets named elementwise_relu_v2
+
+# Build rule for target.
+elementwise_relu_v2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 elementwise_relu_v2
+.PHONY : elementwise_relu_v2
+
+# fast build rule for target.
+elementwise_relu_v2/fast:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v2.dir/build.make CMakeFiles/elementwise_relu_v2.dir/build
+.PHONY : elementwise_relu_v2/fast
+
+#=============================================================================
+# Target rules for targets named elementwise_relu_v1
+
+# Build rule for target.
+elementwise_relu_v1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 elementwise_relu_v1
+.PHONY : elementwise_relu_v1
+
+# fast build rule for target.
+elementwise_relu_v1/fast:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v1.dir/build.make CMakeFiles/elementwise_relu_v1.dir/build
+.PHONY : elementwise_relu_v1/fast
+
+#=============================================================================
+# Target rules for targets named elementwise_relu_v3
+
+# Build rule for target.
+elementwise_relu_v3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 elementwise_relu_v3
+.PHONY : elementwise_relu_v3
+
+# fast build rule for target.
+elementwise_relu_v3/fast:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v3.dir/build.make CMakeFiles/elementwise_relu_v3.dir/build
+.PHONY : elementwise_relu_v3/fast
 
 #=============================================================================
 # Target rules for targets named elementwise_relu_baseline
@@ -190,46 +228,87 @@ elementwise_relu_baseline.s: elementwise_relu_baseline.cu.s
 elementwise_relu_baseline.cu.s:
 	$(MAKE) -f CMakeFiles/elementwise_relu_baseline.dir/build.make CMakeFiles/elementwise_relu_baseline.dir/elementwise_relu_baseline.cu.s
 .PHONY : elementwise_relu_baseline.cu.s
-=======
-# Target rules for targets named elementwise_baseline
 
-# Build rule for target.
-elementwise_baseline: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 elementwise_baseline
-.PHONY : elementwise_baseline
+elementwise_relu_v1.o: elementwise_relu_v1.cu.o
 
-# fast build rule for target.
-elementwise_baseline/fast:
-	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/build
-.PHONY : elementwise_baseline/fast
-
-elementwise_baseline.o: elementwise_baseline.cu.o
-
-.PHONY : elementwise_baseline.o
+.PHONY : elementwise_relu_v1.o
 
 # target to build an object file
-elementwise_baseline.cu.o:
-	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/elementwise_baseline.cu.o
-.PHONY : elementwise_baseline.cu.o
+elementwise_relu_v1.cu.o:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v1.dir/build.make CMakeFiles/elementwise_relu_v1.dir/elementwise_relu_v1.cu.o
+.PHONY : elementwise_relu_v1.cu.o
 
-elementwise_baseline.i: elementwise_baseline.cu.i
+elementwise_relu_v1.i: elementwise_relu_v1.cu.i
 
-.PHONY : elementwise_baseline.i
+.PHONY : elementwise_relu_v1.i
 
 # target to preprocess a source file
-elementwise_baseline.cu.i:
-	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/elementwise_baseline.cu.i
-.PHONY : elementwise_baseline.cu.i
+elementwise_relu_v1.cu.i:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v1.dir/build.make CMakeFiles/elementwise_relu_v1.dir/elementwise_relu_v1.cu.i
+.PHONY : elementwise_relu_v1.cu.i
 
-elementwise_baseline.s: elementwise_baseline.cu.s
+elementwise_relu_v1.s: elementwise_relu_v1.cu.s
 
-.PHONY : elementwise_baseline.s
+.PHONY : elementwise_relu_v1.s
 
 # target to generate assembly for a file
-elementwise_baseline.cu.s:
-	$(MAKE) -f CMakeFiles/elementwise_baseline.dir/build.make CMakeFiles/elementwise_baseline.dir/elementwise_baseline.cu.s
-.PHONY : elementwise_baseline.cu.s
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
+elementwise_relu_v1.cu.s:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v1.dir/build.make CMakeFiles/elementwise_relu_v1.dir/elementwise_relu_v1.cu.s
+.PHONY : elementwise_relu_v1.cu.s
+
+elementwise_relu_v2.o: elementwise_relu_v2.cu.o
+
+.PHONY : elementwise_relu_v2.o
+
+# target to build an object file
+elementwise_relu_v2.cu.o:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v2.dir/build.make CMakeFiles/elementwise_relu_v2.dir/elementwise_relu_v2.cu.o
+.PHONY : elementwise_relu_v2.cu.o
+
+elementwise_relu_v2.i: elementwise_relu_v2.cu.i
+
+.PHONY : elementwise_relu_v2.i
+
+# target to preprocess a source file
+elementwise_relu_v2.cu.i:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v2.dir/build.make CMakeFiles/elementwise_relu_v2.dir/elementwise_relu_v2.cu.i
+.PHONY : elementwise_relu_v2.cu.i
+
+elementwise_relu_v2.s: elementwise_relu_v2.cu.s
+
+.PHONY : elementwise_relu_v2.s
+
+# target to generate assembly for a file
+elementwise_relu_v2.cu.s:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v2.dir/build.make CMakeFiles/elementwise_relu_v2.dir/elementwise_relu_v2.cu.s
+.PHONY : elementwise_relu_v2.cu.s
+
+elementwise_relu_v3.o: elementwise_relu_v3.cu.o
+
+.PHONY : elementwise_relu_v3.o
+
+# target to build an object file
+elementwise_relu_v3.cu.o:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v3.dir/build.make CMakeFiles/elementwise_relu_v3.dir/elementwise_relu_v3.cu.o
+.PHONY : elementwise_relu_v3.cu.o
+
+elementwise_relu_v3.i: elementwise_relu_v3.cu.i
+
+.PHONY : elementwise_relu_v3.i
+
+# target to preprocess a source file
+elementwise_relu_v3.cu.i:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v3.dir/build.make CMakeFiles/elementwise_relu_v3.dir/elementwise_relu_v3.cu.i
+.PHONY : elementwise_relu_v3.cu.i
+
+elementwise_relu_v3.s: elementwise_relu_v3.cu.s
+
+.PHONY : elementwise_relu_v3.s
+
+# target to generate assembly for a file
+elementwise_relu_v3.cu.s:
+	$(MAKE) -f CMakeFiles/elementwise_relu_v3.dir/build.make CMakeFiles/elementwise_relu_v3.dir/elementwise_relu_v3.cu.s
+.PHONY : elementwise_relu_v3.cu.s
 
 # Help Target
 help:
@@ -237,10 +316,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-<<<<<<< HEAD
 	@echo "... elementwise_dotmul_baseline"
+	@echo "... rebuild_cache"
+	@echo "... elementwise_relu_v2"
+	@echo "... elementwise_relu_v1"
+	@echo "... elementwise_relu_v3"
 	@echo "... elementwise_relu_baseline"
 	@echo "... elementwise_dotmul_baseline.o"
 	@echo "... elementwise_dotmul_baseline.i"
@@ -248,12 +329,15 @@ help:
 	@echo "... elementwise_relu_baseline.o"
 	@echo "... elementwise_relu_baseline.i"
 	@echo "... elementwise_relu_baseline.s"
-=======
-	@echo "... elementwise_baseline"
-	@echo "... elementwise_baseline.o"
-	@echo "... elementwise_baseline.i"
-	@echo "... elementwise_baseline.s"
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
+	@echo "... elementwise_relu_v1.o"
+	@echo "... elementwise_relu_v1.i"
+	@echo "... elementwise_relu_v1.s"
+	@echo "... elementwise_relu_v2.o"
+	@echo "... elementwise_relu_v2.i"
+	@echo "... elementwise_relu_v2.s"
+	@echo "... elementwise_relu_v3.o"
+	@echo "... elementwise_relu_v3.i"
+	@echo "... elementwise_relu_v3.s"
 .PHONY : help
 
 

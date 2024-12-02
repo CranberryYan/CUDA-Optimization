@@ -84,7 +84,8 @@
         "__hash_table": "cpp",
         "__split_buffer": "cpp",
         "__tree": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "ios": "cpp"
     },
     "cmake.sourceDirectory": "D:/DeepLearning/CUDA/CUDA-Optimization/Elementwise"
 }

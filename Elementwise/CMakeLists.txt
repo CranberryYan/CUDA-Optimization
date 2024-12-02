@@ -32,18 +32,26 @@ link_directories(
 )
 
 # v0
-<<<<<<< HEAD
 add_executable(elementwise_relu_baseline
     elementwise_relu_baseline.cu
+)
+
+# v1
+add_executable(elementwise_relu_v1
+    elementwise_relu_v1.cu
+)
+
+# v2
+add_executable(elementwise_relu_v2
+    elementwise_relu_v2.cu
+)
+
+# v3
+add_executable(elementwise_relu_v3
+    elementwise_relu_v3.cu
 )
 
 # v0
 add_executable(elementwise_dotmul_baseline
     elementwise_dotmul_baseline.cu
 )
-=======
-add_executable(elementwise_baseline
-    elementwise_baseline.cu
-)
-
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332

@@ -1,38 +1,21 @@
 Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp
 
-<<<<<<< HEAD
-Run Build Command(s):/usr/bin/make cmTC_52443/fast && /usr/bin/make -f CMakeFiles/cmTC_52443.dir/build.make CMakeFiles/cmTC_52443.dir/build
+Run Build Command(s):/usr/bin/make cmTC_36f86/fast && /usr/bin/make -f CMakeFiles/cmTC_36f86.dir/build.make CMakeFiles/cmTC_36f86.dir/build
 make[1]: 进入目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_52443.dir/src.cxx.o
-/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_52443.dir/src.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_52443
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52443.dir/link.txt --verbose=1
-/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_52443.dir/src.cxx.o  -o cmTC_52443 
-/usr/bin/ld: CMakeFiles/cmTC_52443.dir/src.cxx.o: in function `main':
-=======
-Run Build Command(s):/usr/bin/make cmTC_ab65b/fast && /usr/bin/make -f CMakeFiles/cmTC_ab65b.dir/build.make CMakeFiles/cmTC_ab65b.dir/build
-make[1]: 进入目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_ab65b.dir/src.cxx.o
-/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_ab65b.dir/src.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_ab65b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ab65b.dir/link.txt --verbose=1
-/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_ab65b.dir/src.cxx.o  -o cmTC_ab65b 
-/usr/bin/ld: CMakeFiles/cmTC_ab65b.dir/src.cxx.o: in function `main':
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
+Building CXX object CMakeFiles/cmTC_36f86.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_36f86.dir/src.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_36f86
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36f86.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_36f86.dir/src.cxx.o  -o cmTC_36f86 
+/usr/bin/ld: CMakeFiles/cmTC_36f86.dir/src.cxx.o: in function `main':
 src.cxx:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.cxx:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-<<<<<<< HEAD
-make[1]: *** [CMakeFiles/cmTC_52443.dir/build.make:87：cmTC_52443] 错误 1
+make[1]: *** [CMakeFiles/cmTC_36f86.dir/build.make:87：cmTC_36f86] 错误 1
 make[1]: 离开目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_52443/fast] 错误 2
-=======
-make[1]: *** [CMakeFiles/cmTC_ab65b.dir/build.make:87：cmTC_ab65b] 错误 1
-make[1]: 离开目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_ab65b/fast] 错误 2
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
+make: *** [Makefile:121：cmTC_36f86/fast] 错误 2
 
 
 Source file was:
@@ -58,33 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp
 
-<<<<<<< HEAD
-Run Build Command(s):/usr/bin/make cmTC_f8360/fast && /usr/bin/make -f CMakeFiles/cmTC_f8360.dir/build.make CMakeFiles/cmTC_f8360.dir/build
+Run Build Command(s):/usr/bin/make cmTC_da4fb/fast && /usr/bin/make -f CMakeFiles/cmTC_da4fb.dir/build.make CMakeFiles/cmTC_da4fb.dir/build
 make[1]: 进入目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_f8360.dir/CheckFunctionExists.cxx.o
-/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f8360.dir/CheckFunctionExists.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_f8360
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8360.dir/link.txt --verbose=1
-/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f8360.dir/CheckFunctionExists.cxx.o  -o cmTC_f8360  -lpthreads 
+Building CXX object CMakeFiles/cmTC_da4fb.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_da4fb.dir/CheckFunctionExists.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_da4fb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da4fb.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_da4fb.dir/CheckFunctionExists.cxx.o  -o cmTC_da4fb  -lpthreads 
 /usr/bin/ld: 找不到 -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_f8360.dir/build.make:87：cmTC_f8360] 错误 1
+make[1]: *** [CMakeFiles/cmTC_da4fb.dir/build.make:87：cmTC_da4fb] 错误 1
 make[1]: 离开目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_f8360/fast] 错误 2
-=======
-Run Build Command(s):/usr/bin/make cmTC_0c16d/fast && /usr/bin/make -f CMakeFiles/cmTC_0c16d.dir/build.make CMakeFiles/cmTC_0c16d.dir/build
-make[1]: 进入目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_0c16d.dir/CheckFunctionExists.cxx.o
-/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0c16d.dir/CheckFunctionExists.cxx.o -c /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_0c16d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c16d.dir/link.txt --verbose=1
-/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_0c16d.dir/CheckFunctionExists.cxx.o  -o cmTC_0c16d  -lpthreads 
-/usr/bin/ld: 找不到 -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_0c16d.dir/build.make:87：cmTC_0c16d] 错误 1
-make[1]: 离开目录“/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_0c16d/fast] 错误 2
->>>>>>> cf79d9b1544dc02d10ebedc9aed79d02bfa24332
+make: *** [Makefile:121：cmTC_da4fb/fast] 错误 2
 
 
 
