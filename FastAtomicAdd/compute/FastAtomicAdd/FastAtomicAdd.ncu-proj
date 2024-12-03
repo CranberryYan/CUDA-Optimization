@@ -1,6 +1,14 @@
 {
     "extension": "ncu-proj",
     "files": [
+        {
+            "is_open": true,
+            "path": "../../build/app/fastatomicadd_baseline.ncu-rep"
+        },
+        {
+            "is_open": true,
+            "path": "../../build/app/fastatomicadd_v1.ncu-rep"
+        }
     ],
     "launcher": {
         "activity/interactiveprofile/cachecontrol": "Flush All",
@@ -35,7 +43,7 @@
         "activity/profile/launchskipcount": "0",
         "activity/profile/metrics": "",
         "activity/profile/nvtxincludeexcludeoptions": "",
-        "activity/profile/outputfile": "",
+        "activity/profile/outputfile": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/app/fastatomicadd_v1",
         "activity/profile/rangereplayoptions": "",
         "activity/profile/replaymode": "Kernel",
         "activity/profile/samplingBufferSize": "33554432",
@@ -54,7 +62,11 @@
         "platform/linux/arguments": "",
         "platform/linux/autoconnect": true,
         "platform/linux/environment": "",
-        "platform/linux/executable": "",
+        "platform/linux/executable": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/app/fastatomicadd_v1",
+        "platform/linux/executable/history": [
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/app/fastatomicadd_v1",
+            "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/app/fastatomicadd_baseline"
+        ],
         "platform/linux/workingdir": "",
         "platform/ppc/arguments": "",
         "platform/ppc/autoconnect": true,

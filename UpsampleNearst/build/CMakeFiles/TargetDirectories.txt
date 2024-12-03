@@ -1,0 +1,6 @@
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/UpsampleNearst/build/CMakeFiles/edit_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/UpsampleNearst/build/CMakeFiles/rebuild_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/UpsampleNearst/build/CMakeFiles/upsamplenearest_v4.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/UpsampleNearst/build/CMakeFiles/upsamplenearest_v2.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/UpsampleNearst/build/CMakeFiles/upsamplenearest_v3.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/UpsampleNearst/build/CMakeFiles/upsamplenearest_v1.dir

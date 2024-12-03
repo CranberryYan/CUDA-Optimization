@@ -1,0 +1,1 @@
+/usr/bin/g++  CMakeFiles/upsamplenearest_v3.dir/upsamplenearest_v3.cu.o -o app/upsamplenearest_v3  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl
