@@ -80,8 +80,3 @@ add_executable(reduce_v6.2
 add_executable(reduce_v7
     reduce_v7_shfl_down_sync.cu
 )
-
-# v8
-add_executable(reduce_v8
-    reduce_v8_half.cu
-)

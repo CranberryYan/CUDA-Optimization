@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <cuda_runtime.h>
 
-#define N 8 * 1024 * 1024
+#define N 32 * 1024 * 1024
 #define BLOCK_SIZE 512
 
 // 向量乘法

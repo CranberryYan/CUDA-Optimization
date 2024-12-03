@@ -56,7 +56,7 @@ add_executable(elementwise_dotmul_baseline
     elementwise_dotmul_baseline.cu
 )
 
-# v0
+# v1
 add_executable(elementwise_dotmul_v1
     elementwise_dotmul_v1.cu
 )

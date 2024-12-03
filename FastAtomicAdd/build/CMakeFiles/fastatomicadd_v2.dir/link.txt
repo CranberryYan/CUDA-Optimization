@@ -1,0 +1,1 @@
+/usr/bin/g++  CMakeFiles/fastatomicadd_v2.dir/fastatomicadd_v2.cu.o -o app/fastatomicadd_v2  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl

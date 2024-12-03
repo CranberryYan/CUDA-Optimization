@@ -52,6 +52,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/fastatomicadd_v2.dir/DependInfo.cmake"
   "CMakeFiles/fastatomicadd_v1.dir/DependInfo.cmake"
   "CMakeFiles/fastatomicadd_baseline.dir/DependInfo.cmake"
   )

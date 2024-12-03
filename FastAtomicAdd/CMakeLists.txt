@@ -38,5 +38,5 @@ add_executable(fastatomicadd_baseline
 
 # v1
 add_executable(fastatomicadd_v1
-    fastatomicadd_v1
+    fastatomicadd_v1.cu
 )

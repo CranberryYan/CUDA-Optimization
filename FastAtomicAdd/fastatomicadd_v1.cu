@@ -1,12 +1,14 @@
 // v1: 内存对齐 + unrolling
 // v0: Memory Throughput [%]	1.68
 // v0: Memory Throughput [Gbyte/second]	3.65
+// v1: Memory Throughput [%]	1.69
+// v1: Memory Throughput [Gbyte/second]	3.65
 
 #include <iostream>
 #include <cstdlib>
 #include <cuda_runtime.h>
 
-#define N 8 * 1024 * 1024
+#define N 32 * 1024 * 1024
 #define BLOCK_SIZE 512
 
 // alignas: 确保每个 Pack 对象的内存地址按照 sizeof(T) * pack_size 的倍数对齐
