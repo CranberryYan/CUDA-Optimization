@@ -6,15 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Reduce/reduce_v2_bank_conflict.cu
-cuda.h
--
-cuda_runtime.h
--
-time.h
--
-vector
--
-iostream
--
-

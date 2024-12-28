@@ -6,5 +6,5 @@ CUDA_FLAGS =  -Xcompiler -Wall
 
 CUDA_DEFINES = 
 
-CUDA_INCLUDES = -I/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise -I/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise/15_gemv 
+CUDA_INCLUDES = 
 

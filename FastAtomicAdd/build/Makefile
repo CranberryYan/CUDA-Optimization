@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named fastatomicadd_v2
-
-# Build rule for target.
-fastatomicadd_v2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fastatomicadd_v2
-.PHONY : fastatomicadd_v2
-
-# fast build rule for target.
-fastatomicadd_v2/fast:
-	$(MAKE) -f CMakeFiles/fastatomicadd_v2.dir/build.make CMakeFiles/fastatomicadd_v2.dir/build
-.PHONY : fastatomicadd_v2/fast
-
-#=============================================================================
 # Target rules for targets named fastatomicadd_v1
 
 # Build rule for target.
@@ -203,33 +190,6 @@ fastatomicadd_v1.cu.s:
 	$(MAKE) -f CMakeFiles/fastatomicadd_v1.dir/build.make CMakeFiles/fastatomicadd_v1.dir/fastatomicadd_v1.cu.s
 .PHONY : fastatomicadd_v1.cu.s
 
-fastatomicadd_v2.o: fastatomicadd_v2.cu.o
-
-.PHONY : fastatomicadd_v2.o
-
-# target to build an object file
-fastatomicadd_v2.cu.o:
-	$(MAKE) -f CMakeFiles/fastatomicadd_v2.dir/build.make CMakeFiles/fastatomicadd_v2.dir/fastatomicadd_v2.cu.o
-.PHONY : fastatomicadd_v2.cu.o
-
-fastatomicadd_v2.i: fastatomicadd_v2.cu.i
-
-.PHONY : fastatomicadd_v2.i
-
-# target to preprocess a source file
-fastatomicadd_v2.cu.i:
-	$(MAKE) -f CMakeFiles/fastatomicadd_v2.dir/build.make CMakeFiles/fastatomicadd_v2.dir/fastatomicadd_v2.cu.i
-.PHONY : fastatomicadd_v2.cu.i
-
-fastatomicadd_v2.s: fastatomicadd_v2.cu.s
-
-.PHONY : fastatomicadd_v2.s
-
-# target to generate assembly for a file
-fastatomicadd_v2.cu.s:
-	$(MAKE) -f CMakeFiles/fastatomicadd_v2.dir/build.make CMakeFiles/fastatomicadd_v2.dir/fastatomicadd_v2.cu.s
-.PHONY : fastatomicadd_v2.cu.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -238,7 +198,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... fastatomicadd_v2"
 	@echo "... fastatomicadd_v1"
 	@echo "... fastatomicadd_baseline"
 	@echo "... fastatomicadd_baseline.o"
@@ -247,9 +206,6 @@ help:
 	@echo "... fastatomicadd_v1.o"
 	@echo "... fastatomicadd_v1.i"
 	@echo "... fastatomicadd_v1.s"
-	@echo "... fastatomicadd_v2.o"
-	@echo "... fastatomicadd_v2.i"
-	@echo "... fastatomicadd_v2.s"
 .PHONY : help
 
 

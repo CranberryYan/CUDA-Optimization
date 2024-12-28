@@ -1,0 +1,1 @@
+/usr/bin/g++  CMakeFiles/curand_test_v0.dir/curand_test_v0.cu.o -o app/curand_test_v0  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl

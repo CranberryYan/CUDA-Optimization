@@ -1,5 +1,4 @@
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/CMakeFiles/rebuild_cache.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/CMakeFiles/edit_cache.dir
-/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/CMakeFiles/fastatomicadd_v2.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/CMakeFiles/fastatomicadd_v1.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/FastAtomicAdd/build/CMakeFiles/fastatomicadd_baseline.dir

@@ -29,7 +29,6 @@
 
 void upsampleNearst_CPU(const float* inputImage, float* outputImage, 
     int inputWidth, int inputHeight) {
-
     int outputWidth = inputWidth * SCALE;
     int outputHeight = inputHeight * SCALE;
     for (int y_out = 0; y_out < outputHeight; ++y_out) {
@@ -55,7 +54,6 @@ struct alignas(pack_size * sizeof(T)) Pack {
 template<typename T>
 __global__ void upsampleNearest(const T* input, T* output,
     const int32_t input_height, const int32_t input_width) {
-
     int32_t input_size = input_height * input_width;
     int gid = blockIdx.x * blockDim.x + threadIdx.x;
     for (int i = gid; i < N; i += blockDim.x * gridDim.x) {
@@ -70,7 +68,6 @@ __global__ void upsampleNearest(const T* input, T* output,
 }
 
 int main() {
-
     float *input_host, *output_host;
     float *input_d, *output_d, *output_h;
     input_host = (float*)malloc(sizeof(float) * N);

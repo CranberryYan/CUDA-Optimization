@@ -17,7 +17,6 @@
 
 void upsampleNearst_CPU(const float* inputImage, float* outputImage, 
     int inputWidth, int inputHeight) {
-
     int outputWidth = inputWidth * SCALE;
     int outputHeight = inputHeight * SCALE;
     for (int y_out = 0; y_out < outputHeight; ++y_out) {
@@ -51,7 +50,6 @@ void upsampleNearst_CPU(const float* inputImage, float* outputImage,
 // }
 
 __global__ void upsampleNearest(const float* input, float* output, int input_width, int input_height) {
-
     int tid_x = threadIdx.x;
     int tid_y = threadIdx.y;
     int out_x = blockIdx.x * blockDim.x + threadIdx.x;

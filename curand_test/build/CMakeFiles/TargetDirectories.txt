@@ -1,0 +1,3 @@
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/curand_test/build/CMakeFiles/rebuild_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/curand_test/build/CMakeFiles/edit_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/curand_test/build/CMakeFiles/curand_test_v0.dir

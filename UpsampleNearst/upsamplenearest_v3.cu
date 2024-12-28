@@ -23,7 +23,6 @@
 
 void upsampleNearst_CPU(const float* inputImage, float* outputImage, 
     int inputWidth, int inputHeight) {
-
     int outputWidth = inputWidth * SCALE;
     int outputHeight = inputHeight * SCALE;
     for (int y_out = 0; y_out < outputHeight; ++y_out) {
@@ -43,7 +42,6 @@ void upsampleNearst_CPU(const float* inputImage, float* outputImage,
 
 // 向量化, y维度正常, x维度一次读取4个元素
 __global__ void upsampleNearest(float* input, float* output, int input_width, int input_height) {
-
     int out_x = blockIdx.x * blockDim.x + threadIdx.x;
     int out_y = blockIdx.y * blockDim.y + threadIdx.y;
     int output_width = SCALE * input_width;
