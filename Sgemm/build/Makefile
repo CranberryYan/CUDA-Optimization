@@ -111,6 +111,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Sgemm_v2_2
+
+# Build rule for target.
+Sgemm_v2_2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Sgemm_v2_2
+.PHONY : Sgemm_v2_2
+
+# fast build rule for target.
+Sgemm_v2_2/fast:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_2.dir/build.make CMakeFiles/Sgemm_v2_2.dir/build
+.PHONY : Sgemm_v2_2/fast
+
+#=============================================================================
+# Target rules for targets named Sgemm_v2
+
+# Build rule for target.
+Sgemm_v2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Sgemm_v2
+.PHONY : Sgemm_v2
+
+# fast build rule for target.
+Sgemm_v2/fast:
+	$(MAKE) -f CMakeFiles/Sgemm_v2.dir/build.make CMakeFiles/Sgemm_v2.dir/build
+.PHONY : Sgemm_v2/fast
+
+#=============================================================================
+# Target rules for targets named Sgemm_v1
+
+# Build rule for target.
+Sgemm_v1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Sgemm_v1
+.PHONY : Sgemm_v1
+
+# fast build rule for target.
+Sgemm_v1/fast:
+	$(MAKE) -f CMakeFiles/Sgemm_v1.dir/build.make CMakeFiles/Sgemm_v1.dir/build
+.PHONY : Sgemm_v1/fast
+
+#=============================================================================
 # Target rules for targets named Sgemm_v0
 
 # Build rule for target.
@@ -190,6 +229,87 @@ Sgemm_v0.cu.s:
 	$(MAKE) -f CMakeFiles/Sgemm_v0.dir/build.make CMakeFiles/Sgemm_v0.dir/Sgemm_v0.cu.s
 .PHONY : Sgemm_v0.cu.s
 
+Sgemm_v1.o: Sgemm_v1.cu.o
+
+.PHONY : Sgemm_v1.o
+
+# target to build an object file
+Sgemm_v1.cu.o:
+	$(MAKE) -f CMakeFiles/Sgemm_v1.dir/build.make CMakeFiles/Sgemm_v1.dir/Sgemm_v1.cu.o
+.PHONY : Sgemm_v1.cu.o
+
+Sgemm_v1.i: Sgemm_v1.cu.i
+
+.PHONY : Sgemm_v1.i
+
+# target to preprocess a source file
+Sgemm_v1.cu.i:
+	$(MAKE) -f CMakeFiles/Sgemm_v1.dir/build.make CMakeFiles/Sgemm_v1.dir/Sgemm_v1.cu.i
+.PHONY : Sgemm_v1.cu.i
+
+Sgemm_v1.s: Sgemm_v1.cu.s
+
+.PHONY : Sgemm_v1.s
+
+# target to generate assembly for a file
+Sgemm_v1.cu.s:
+	$(MAKE) -f CMakeFiles/Sgemm_v1.dir/build.make CMakeFiles/Sgemm_v1.dir/Sgemm_v1.cu.s
+.PHONY : Sgemm_v1.cu.s
+
+Sgemm_v2.o: Sgemm_v2.cu.o
+
+.PHONY : Sgemm_v2.o
+
+# target to build an object file
+Sgemm_v2.cu.o:
+	$(MAKE) -f CMakeFiles/Sgemm_v2.dir/build.make CMakeFiles/Sgemm_v2.dir/Sgemm_v2.cu.o
+.PHONY : Sgemm_v2.cu.o
+
+Sgemm_v2.i: Sgemm_v2.cu.i
+
+.PHONY : Sgemm_v2.i
+
+# target to preprocess a source file
+Sgemm_v2.cu.i:
+	$(MAKE) -f CMakeFiles/Sgemm_v2.dir/build.make CMakeFiles/Sgemm_v2.dir/Sgemm_v2.cu.i
+.PHONY : Sgemm_v2.cu.i
+
+Sgemm_v2.s: Sgemm_v2.cu.s
+
+.PHONY : Sgemm_v2.s
+
+# target to generate assembly for a file
+Sgemm_v2.cu.s:
+	$(MAKE) -f CMakeFiles/Sgemm_v2.dir/build.make CMakeFiles/Sgemm_v2.dir/Sgemm_v2.cu.s
+.PHONY : Sgemm_v2.cu.s
+
+Sgemm_v2_2.o: Sgemm_v2_2.cu.o
+
+.PHONY : Sgemm_v2_2.o
+
+# target to build an object file
+Sgemm_v2_2.cu.o:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_2.dir/build.make CMakeFiles/Sgemm_v2_2.dir/Sgemm_v2_2.cu.o
+.PHONY : Sgemm_v2_2.cu.o
+
+Sgemm_v2_2.i: Sgemm_v2_2.cu.i
+
+.PHONY : Sgemm_v2_2.i
+
+# target to preprocess a source file
+Sgemm_v2_2.cu.i:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_2.dir/build.make CMakeFiles/Sgemm_v2_2.dir/Sgemm_v2_2.cu.i
+.PHONY : Sgemm_v2_2.cu.i
+
+Sgemm_v2_2.s: Sgemm_v2_2.cu.s
+
+.PHONY : Sgemm_v2_2.s
+
+# target to generate assembly for a file
+Sgemm_v2_2.cu.s:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_2.dir/build.make CMakeFiles/Sgemm_v2_2.dir/Sgemm_v2_2.cu.s
+.PHONY : Sgemm_v2_2.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,6 +318,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Sgemm_v2_2"
+	@echo "... Sgemm_v2"
+	@echo "... Sgemm_v1"
 	@echo "... Sgemm_v0"
 	@echo "... Sgemm_baseline"
 	@echo "... Sgemm_baseline.o"
@@ -206,6 +329,15 @@ help:
 	@echo "... Sgemm_v0.o"
 	@echo "... Sgemm_v0.i"
 	@echo "... Sgemm_v0.s"
+	@echo "... Sgemm_v1.o"
+	@echo "... Sgemm_v1.i"
+	@echo "... Sgemm_v1.s"
+	@echo "... Sgemm_v2.o"
+	@echo "... Sgemm_v2.i"
+	@echo "... Sgemm_v2.s"
+	@echo "... Sgemm_v2_2.o"
+	@echo "... Sgemm_v2_2.i"
+	@echo "... Sgemm_v2_2.s"
 .PHONY : help
 
 

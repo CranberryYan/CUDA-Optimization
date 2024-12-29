@@ -1,4 +1,7 @@
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/rebuild_cache.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/edit_cache.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/Sgemm_v2_2.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/Sgemm_v2.dir
+/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/Sgemm_v1.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/Sgemm_v0.dir
 /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/Sgemm_baseline.dir

@@ -38,3 +38,18 @@ add_executable(Sgemm_baseline
 add_executable(Sgemm_v0
     Sgemm_v0.cu
 )
+
+# v1
+add_executable(Sgemm_v1
+    Sgemm_v1.cu
+)
+
+# v2
+add_executable(Sgemm_v2
+    Sgemm_v2.cu
+)
+
+# v2
+add_executable(Sgemm_v2_2
+    Sgemm_v2_2.cu
+)

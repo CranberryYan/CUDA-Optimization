@@ -1,6 +1,14 @@
-// v0: 
+// v0:
 //	Compute (SM) Throughput [%]	92.10
 //	Memory Throughput [Gbyte/second]	8.43
+// v1:
+//	使用shared_memory
+//	性能分析意义不大, 为了强行适配该版本的改动
+//	shape做出调整
+//	Memory Throughput [Gbyte/second]	12.33
+// v2:
+//  使用shared_memory + 分块计算
+//  Memory Throughput [Gbyte/second]	11.34
 #include <iostream>
 #define BLOCK_SIZE 16
 
@@ -49,7 +57,8 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 // 每个block有16个thread, 每个thread负责一个元素
 // 	每个block负责16*16个元素, 一共64*64个block
 //	-> 1024*1024个元素
-__global__ void sgemm_v0(float *A, float *B, float *C,
+template<unsigned int BLOCK_DIM>
+__global__ void sgemm_v1(float *A, float *B, float *C,
 	const int M, const int N, const int K) {
 	const int x = threadIdx.x + blockIdx.x * blockDim.x;
 	const int y = threadIdx.y + blockIdx.y * blockDim.y;
@@ -58,22 +67,33 @@ __global__ void sgemm_v0(float *A, float *B, float *C,
 	// blockIdx: [0, 63]
 	//	offset_stride: 16
 	// 行的偏移(y轴)
-	//	接下来通过偏移k, 遍历这一行
 	int offset_row = blockIdx.y * blockDim.y * K;
 	// 列的偏移(x轴)
-	//	接下来通过偏移k*N, 遍历这一列
 	int offset_col = blockIdx.x * blockDim.x;
 	float *A_ptr = A + offset_row;
 	float *B_ptr = B + offset_col;
 
-	// thread_level
+	// 注: smem的大小需要在编译期确定
+	//	-> template
+	// 3080: L1 cache + smem = 8704KB
+	//	单个SM: 100KB(max)
+	//	单个block: 48KB(max)
 	float temp = 0.0f;
-	for (int k = 0; k < K; ++k) {
-		temp += A_ptr[threadIdx.y * K + k] *
-			B_ptr[k * N + threadIdx.x];
+	__shared__ float a_shared[BLOCK_DIM][BLOCK_DIM];
+	__shared__ float b_shared[BLOCK_DIM][BLOCK_DIM];
+	for (int k = 0; k < K; k += blockDim.x) {
+		a_shared[threadIdx.y][threadIdx.x] =
+			A_ptr[threadIdx.y * K + threadIdx.x + k];
+		b_shared[threadIdx.y][threadIdx.x] =
+			B_ptr[(threadIdx.y + k) * N + threadIdx.x];
+    __syncthreads();
+    for (int i = 0; i < BLOCK_DIM; ++i) {
+      temp += a_shared[threadIdx.y][i] * b_shared[i][threadIdx.x];
+    }
+    __syncthreads();
 	}
-	int offset_C = y * N + x;
-	C[offset_C] = temp;
+
+  C[y * N + x] = temp;
 }
 
 int main() {
@@ -106,6 +126,28 @@ int main() {
 	cudaMemcpy(B_buf_device, B_buf_host, k * n *sizeof(float),
 		cudaMemcpyHostToDevice);
 
+	cudaDeviceSetCacheConfig(cudaFuncCachePreferShared);
+	cudaFuncCache cacheConfig;
+	cudaDeviceProp deviceProp;
+	cudaDeviceGetCacheConfig(&cacheConfig);
+	cudaGetDeviceProperties(&deviceProp, 0);
+	switch (cacheConfig) {
+			case cudaFuncCachePreferNone:
+					std::cout << "Current cache config: PreferNone" << std::endl;
+					break;
+			case cudaFuncCachePreferShared:
+					std::cout << "Current cache config: PreferShared" << std::endl;
+					break;
+			case cudaFuncCachePreferL1:
+					std::cout << "Current cache config: PreferL1" << std::endl;
+					break;
+			case cudaFuncCachePreferEqual:
+					std::cout << "Current cache config: PreferEqual" << std::endl;
+					break;
+	}
+	std::cout << "Max Shared Memory per Block: " << deviceProp.sharedMemPerBlock << " bytes" << std::endl;
+	std::cout << "Max Shared Memory per SM: " << deviceProp.sharedMemPerMultiprocessor << " bytes" << std::endl;
+
 	// CPU_segmm
 	std::cout << " ============= CPU_segmm ============= " << std::endl;
 	sgemm_CPU(A_buf_host, B_buf_host, C_buf_host_cpu,
@@ -116,7 +158,8 @@ int main() {
 	std::cout << " ============= GPU_segmm ============= " << std::endl;
 	dim3 grid((m + BLOCK_SIZE - 1) / BLOCK_SIZE, (m + BLOCK_SIZE - 1) / BLOCK_SIZE);
 	dim3 block(BLOCK_SIZE, BLOCK_SIZE);
-	sgemm_v0<<<grid, block>>>(A_buf_device, B_buf_device, C_buf_device,
+	sgemm_v1<BLOCK_SIZE><<<grid, block>>>(
+		A_buf_device, B_buf_device, C_buf_device,
 		m, n, k);
 
 	// verify
