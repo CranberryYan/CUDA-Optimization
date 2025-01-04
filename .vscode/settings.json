@@ -87,5 +87,6 @@
         "filesystem": "cpp",
         "ios": "cpp"
     },
-    "cmake.sourceDirectory": "D:/DeepLearning/CUDA/CUDA-Optimization/Elementwise"
+    "cmake.sourceDirectory": "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Elementwise",
+    "editor.tabSize": 2
 }

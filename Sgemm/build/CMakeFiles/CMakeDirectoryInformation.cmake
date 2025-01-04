@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

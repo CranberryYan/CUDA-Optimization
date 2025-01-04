@@ -49,7 +49,22 @@ add_executable(Sgemm_v2
     Sgemm_v2.cu
 )
 
-# v2
+# v2_2
 add_executable(Sgemm_v2_2
     Sgemm_v2_2.cu
+)
+
+# v2_3
+add_executable(Sgemm_v2_3
+    Sgemm_v2_3.cu
+)
+
+# v3
+add_executable(Sgemm_v3
+    Sgemm_v3.cu
+)
+
+# v3
+add_executable(Sgemm_v4
+    Sgemm_v4.cu
 )

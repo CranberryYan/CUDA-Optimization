@@ -33,7 +33,7 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 		for (int n = 0; n < N; ++n) {
 			if (std::abs(C_buf_host_cpu[m*N+n] -
 				C_buf_host_gpu[m*N+n]) > 1e-3) {
-				std::cout << "FALED!" << std::endl;
+				std::cout << "FAILED!" << std::endl;
 				std::cout << "C_buf_host_cpu[" << m*N+n << "]: " << C_buf_host_cpu[m*N+n] << std::endl
 					<< "C_buf_host_gpu[" << m*N+n << "]: " << C_buf_host_gpu[m*N+n] << std::endl;
 				return false;

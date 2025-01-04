@@ -15,7 +15,6 @@
 #define N 32 * 1024 * 1024 // 32MB
 #define BLOCK_SIZE 256
 
-
 void CPU_reduce(std::vector<float> &input_, double &output_) {
     for (auto x : input_) {
         output_ += x;

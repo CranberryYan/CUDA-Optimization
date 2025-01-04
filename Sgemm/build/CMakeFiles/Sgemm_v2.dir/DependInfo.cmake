@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CUDA
-  "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Sgemm_v2.cu" "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/Sgemm_v2.dir/Sgemm_v2.cu.o"
+  "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Sgemm_v2.cu" "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build/CMakeFiles/Sgemm_v2.dir/Sgemm_v2.cu.o"
   )
 set(CMAKE_CUDA_COMPILER_ID "NVIDIA")
 

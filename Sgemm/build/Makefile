@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build
+CMAKE_BINARY_DIR = /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build/CMakeFiles /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -109,6 +109,45 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named Sgemm_v4
+
+# Build rule for target.
+Sgemm_v4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Sgemm_v4
+.PHONY : Sgemm_v4
+
+# fast build rule for target.
+Sgemm_v4/fast:
+	$(MAKE) -f CMakeFiles/Sgemm_v4.dir/build.make CMakeFiles/Sgemm_v4.dir/build
+.PHONY : Sgemm_v4/fast
+
+#=============================================================================
+# Target rules for targets named Sgemm_v3
+
+# Build rule for target.
+Sgemm_v3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Sgemm_v3
+.PHONY : Sgemm_v3
+
+# fast build rule for target.
+Sgemm_v3/fast:
+	$(MAKE) -f CMakeFiles/Sgemm_v3.dir/build.make CMakeFiles/Sgemm_v3.dir/build
+.PHONY : Sgemm_v3/fast
+
+#=============================================================================
+# Target rules for targets named Sgemm_v2_3
+
+# Build rule for target.
+Sgemm_v2_3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Sgemm_v2_3
+.PHONY : Sgemm_v2_3
+
+# fast build rule for target.
+Sgemm_v2_3/fast:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_3.dir/build.make CMakeFiles/Sgemm_v2_3.dir/build
+.PHONY : Sgemm_v2_3/fast
 
 #=============================================================================
 # Target rules for targets named Sgemm_v2_2
@@ -310,14 +349,98 @@ Sgemm_v2_2.cu.s:
 	$(MAKE) -f CMakeFiles/Sgemm_v2_2.dir/build.make CMakeFiles/Sgemm_v2_2.dir/Sgemm_v2_2.cu.s
 .PHONY : Sgemm_v2_2.cu.s
 
+Sgemm_v2_3.o: Sgemm_v2_3.cu.o
+
+.PHONY : Sgemm_v2_3.o
+
+# target to build an object file
+Sgemm_v2_3.cu.o:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_3.dir/build.make CMakeFiles/Sgemm_v2_3.dir/Sgemm_v2_3.cu.o
+.PHONY : Sgemm_v2_3.cu.o
+
+Sgemm_v2_3.i: Sgemm_v2_3.cu.i
+
+.PHONY : Sgemm_v2_3.i
+
+# target to preprocess a source file
+Sgemm_v2_3.cu.i:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_3.dir/build.make CMakeFiles/Sgemm_v2_3.dir/Sgemm_v2_3.cu.i
+.PHONY : Sgemm_v2_3.cu.i
+
+Sgemm_v2_3.s: Sgemm_v2_3.cu.s
+
+.PHONY : Sgemm_v2_3.s
+
+# target to generate assembly for a file
+Sgemm_v2_3.cu.s:
+	$(MAKE) -f CMakeFiles/Sgemm_v2_3.dir/build.make CMakeFiles/Sgemm_v2_3.dir/Sgemm_v2_3.cu.s
+.PHONY : Sgemm_v2_3.cu.s
+
+Sgemm_v3.o: Sgemm_v3.cu.o
+
+.PHONY : Sgemm_v3.o
+
+# target to build an object file
+Sgemm_v3.cu.o:
+	$(MAKE) -f CMakeFiles/Sgemm_v3.dir/build.make CMakeFiles/Sgemm_v3.dir/Sgemm_v3.cu.o
+.PHONY : Sgemm_v3.cu.o
+
+Sgemm_v3.i: Sgemm_v3.cu.i
+
+.PHONY : Sgemm_v3.i
+
+# target to preprocess a source file
+Sgemm_v3.cu.i:
+	$(MAKE) -f CMakeFiles/Sgemm_v3.dir/build.make CMakeFiles/Sgemm_v3.dir/Sgemm_v3.cu.i
+.PHONY : Sgemm_v3.cu.i
+
+Sgemm_v3.s: Sgemm_v3.cu.s
+
+.PHONY : Sgemm_v3.s
+
+# target to generate assembly for a file
+Sgemm_v3.cu.s:
+	$(MAKE) -f CMakeFiles/Sgemm_v3.dir/build.make CMakeFiles/Sgemm_v3.dir/Sgemm_v3.cu.s
+.PHONY : Sgemm_v3.cu.s
+
+Sgemm_v4.o: Sgemm_v4.cu.o
+
+.PHONY : Sgemm_v4.o
+
+# target to build an object file
+Sgemm_v4.cu.o:
+	$(MAKE) -f CMakeFiles/Sgemm_v4.dir/build.make CMakeFiles/Sgemm_v4.dir/Sgemm_v4.cu.o
+.PHONY : Sgemm_v4.cu.o
+
+Sgemm_v4.i: Sgemm_v4.cu.i
+
+.PHONY : Sgemm_v4.i
+
+# target to preprocess a source file
+Sgemm_v4.cu.i:
+	$(MAKE) -f CMakeFiles/Sgemm_v4.dir/build.make CMakeFiles/Sgemm_v4.dir/Sgemm_v4.cu.i
+.PHONY : Sgemm_v4.cu.i
+
+Sgemm_v4.s: Sgemm_v4.cu.s
+
+.PHONY : Sgemm_v4.s
+
+# target to generate assembly for a file
+Sgemm_v4.cu.s:
+	$(MAKE) -f CMakeFiles/Sgemm_v4.dir/build.make CMakeFiles/Sgemm_v4.dir/Sgemm_v4.cu.s
+.PHONY : Sgemm_v4.cu.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... Sgemm_v4"
 	@echo "... rebuild_cache"
+	@echo "... Sgemm_v3"
 	@echo "... edit_cache"
+	@echo "... Sgemm_v2_3"
 	@echo "... Sgemm_v2_2"
 	@echo "... Sgemm_v2"
 	@echo "... Sgemm_v1"
@@ -338,6 +461,15 @@ help:
 	@echo "... Sgemm_v2_2.o"
 	@echo "... Sgemm_v2_2.i"
 	@echo "... Sgemm_v2_2.s"
+	@echo "... Sgemm_v2_3.o"
+	@echo "... Sgemm_v2_3.i"
+	@echo "... Sgemm_v2_3.s"
+	@echo "... Sgemm_v3.o"
+	@echo "... Sgemm_v3.i"
+	@echo "... Sgemm_v3.s"
+	@echo "... Sgemm_v4.o"
+	@echo "... Sgemm_v4.i"
+	@echo "... Sgemm_v4.s"
 .PHONY : help
 
 

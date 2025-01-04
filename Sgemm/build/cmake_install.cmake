@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/yst/文档/yst/CUDA/cuda-mode/CUDA-Optimization/Sgemm/Build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -44,9 +44,11 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 		for (int n = 0; n < N; ++n) {
 			if (std::abs(C_buf_host_cpu[m*N+n] -
 				C_buf_host_gpu[m*N+n]) > 1e-3) {
-				std::cout << "FALED!" << std::endl;
-				std::cout << "C_buf_host_cpu[" << m*N+n << "]: " << C_buf_host_cpu[m*N+n] << std::endl
-					<< "C_buf_host_gpu[" << m*N+n << "]: " << C_buf_host_gpu[m*N+n] << std::endl;
+				std::cout << "FAILED!" << std::endl;
+				std::cout << "C_buf_host_cpu[" << m*N+n << "]: "
+					<< C_buf_host_cpu[m*N+n] << std::endl
+					<< "C_buf_host_gpu[" << m*N+n << "]: "
+					<< C_buf_host_gpu[m*N+n] << std::endl;
 				return false;
 			}
 		}
@@ -56,22 +58,28 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 	return true;
 }
 
-// BLOCK_SIZE: 16
-// 每个block有16个thread, 每个thread负责一个元素
-// 	每个block负责16*16个元素, 一共64*64个block
+// BLOCK_SIZE: 32
+// 每个block有32个thread, 每个thread负责一个元素
+// 	每个block负责32*32个元素, 一共32*32个block
 //	-> 1024*1024个元素
 template<unsigned int BLOCK_DIM>
-__global__ void sgemm_v1(float *A, float *B, float *C,
+__global__ void sgemm_v2_2(float *A, float *B, float *C,
 	const int M, const int N, const int K) {
 	const int x = threadIdx.x + blockIdx.x * blockDim.x;
 	const int y = threadIdx.y + blockIdx.y * blockDim.y;
 	// block_level
-	// blockDim: [16, 16]
-	// blockIdx: [0, 63]
-	//	offset_stride: 16
+	// blockDim: [32, 32]
+	// blockIdx: [0, 31]
+	//	offset_stride: 32
 	// 行的偏移(y轴)
+	// A: [M, K]
+	//	M: 一行K个元素, 一共M行, 一个block负责blockDim.y(32)行,
+	//		一共gridDim.y(32)个block
 	int offset_row = blockIdx.y * blockDim.y * K;
 	// 列的偏移(x轴)
+	// B: [K, N]
+	//	N: 一行N个元素, 每个block负责blockDim.x(32)列,
+	//		一共gridDim.x(32)个block
 	int offset_col = blockIdx.x * blockDim.x;
 	float *A_ptr = A + offset_row;
 	float *B_ptr = B + offset_col;
@@ -106,7 +114,6 @@ __global__ void sgemm_v1(float *A, float *B, float *C,
 int main() {
 	// lhs: [M, K]
 	// rhs: [K, N]
-	printf("gemm_baseline\n");
 	const unsigned int m = 1024;
 	const unsigned int n = 1024;
 	const unsigned int k = 1024;
@@ -152,8 +159,10 @@ int main() {
 					std::cout << "Current cache config: PreferEqual" << std::endl;
 					break;
 	}
-	std::cout << "Max Shared Memory per Block: " << deviceProp.sharedMemPerBlock << " bytes" << std::endl;
-	std::cout << "Max Shared Memory per SM: " << deviceProp.sharedMemPerMultiprocessor << " bytes" << std::endl;
+	std::cout << "Max Shared Memory per Block: "
+		<< deviceProp.sharedMemPerBlock << " bytes" << std::endl;
+	std::cout << "Max Shared Memory per SM: "
+		<< deviceProp.sharedMemPerMultiprocessor << " bytes" << std::endl;
 
 	// CPU_segmm
 	std::cout << " ============= CPU_segmm ============= " << std::endl;
@@ -163,9 +172,10 @@ int main() {
 	// GPU_segmm
 	// sgemm: 二维 -> grid和block都是二维
 	std::cout << " ============= GPU_segmm ============= " << std::endl;
-	dim3 grid((m + BLOCK_SIZE - 1) / BLOCK_SIZE, (m + BLOCK_SIZE - 1) / BLOCK_SIZE);
+	dim3 grid((m + BLOCK_SIZE - 1) / BLOCK_SIZE,
+		(m + BLOCK_SIZE - 1) / BLOCK_SIZE);
 	dim3 block(BLOCK_SIZE, BLOCK_SIZE);
-	sgemm_v1<BLOCK_SIZE><<<grid, block>>>(
+	sgemm_v2_2<BLOCK_SIZE><<<grid, block>>>(
 		A_buf_device, B_buf_device, C_buf_device,
 		m, n, k);
 

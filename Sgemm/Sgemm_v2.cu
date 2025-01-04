@@ -41,7 +41,7 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 		for (int n = 0; n < N; ++n) {
 			if (std::abs(C_buf_host_cpu[m*N+n] -
 				C_buf_host_gpu[m*N+n]) > 1e-3) {
-				std::cout << "FALED!" << std::endl;
+				std::cout << "FAILED!" << std::endl;
 				std::cout << "C_buf_host_cpu[" << m*N+n << "]: " << C_buf_host_cpu[m*N+n] << std::endl
 					<< "C_buf_host_gpu[" << m*N+n << "]: " << C_buf_host_gpu[m*N+n] << std::endl;
 				return false;
@@ -58,7 +58,7 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 // 	每个block负责16*16个元素, 一共64*64个block
 //	-> 1024*1024个元素
 template<unsigned int BLOCK_DIM>
-__global__ void sgemm_v1(float *A, float *B, float *C,
+__global__ void sgemm_v2(float *A, float *B, float *C,
 	const int M, const int N, const int K) {
 	const int x = threadIdx.x + blockIdx.x * blockDim.x;
 	const int y = threadIdx.y + blockIdx.y * blockDim.y;
@@ -99,7 +99,6 @@ __global__ void sgemm_v1(float *A, float *B, float *C,
 int main() {
 	// lhs: [M, K]
 	// rhs: [K, N]
-	printf("gemm_baseline\n");
 	const unsigned int m = 1024;
 	const unsigned int n = 1024;
 	const unsigned int k = 1024;
@@ -158,7 +157,7 @@ int main() {
 	std::cout << " ============= GPU_segmm ============= " << std::endl;
 	dim3 grid((m + BLOCK_SIZE - 1) / BLOCK_SIZE, (m + BLOCK_SIZE - 1) / BLOCK_SIZE);
 	dim3 block(BLOCK_SIZE, BLOCK_SIZE);
-	sgemm_v1<BLOCK_SIZE><<<grid, block>>>(
+	sgemm_v2<BLOCK_SIZE><<<grid, block>>>(
 		A_buf_device, B_buf_device, C_buf_device,
 		m, n, k);
 
