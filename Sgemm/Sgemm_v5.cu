@@ -22,9 +22,13 @@
 // v4:
 //	向量化
 //	Memory Throughput [Gbyte/second]	37.36
+// v5:
+//	内积 -> 外积
+// 	Memory Throughput [Gbyte/second]	54.32
 #include <iostream>
 #define STRIDE 2
 #define BLOCK_SIZE 16
+#define NUM_PER_REG  		2
 #define NUM_PER_THREAD  4
 #define M_NUM_PER_BLOCK 32
 #define N_NUM_PER_BLOCK 32
@@ -74,50 +78,60 @@ bool checkout(float *C_buf_host_cpu, float *C_buf_host_gpu,
 }
 
 template<unsigned int M_NUM_PER_BLOCK_, unsigned int N_NUM_PER_BLOCK_,
-  unsigned int K_NUM_PER_BLOCK_, unsigned int NUM_PER_THREAD_>
-__global__ void sgemm_v4(float *A, float *B, float *C,
+  unsigned int K_NUM_PER_BLOCK_, unsigned int NUM_PER_THREAD_,
+	unsigned int NUM_PER_REG_>
+__global__ void sgemm_v5(float *A, float *B, float *C,
 	const int M, const int N, const int K) {
-	// A矩阵先偏移到所在的行
-  float *A_ptr = A + (blockIdx.y * M_NUM_PER_BLOCK_ + threadIdx.y) * K;
-	// B矩阵先偏移到所在的列
+	int tid = threadIdx.y * blockDim.x + threadIdx.x;
+	int ctx = tid % 16;
+	int cty = tid / 16;
+	// A矩阵的小块先偏移到所在的行
+  float *A_ptr = A + (blockIdx.y * M_NUM_PER_BLOCK_) * K;
+	// B矩阵的小块先偏移到所在的列
   float *B_ptr = B + blockIdx.x * N_NUM_PER_BLOCK_;
+	// C矩阵偏移到所在的行 + 列
+	float *C_ptr = C + (blockIdx.y * M_NUM_PER_BLOCK_) * K +
+		blockIdx.x * N_NUM_PER_BLOCK_;
 
-  float temp[NUM_PER_THREAD_] = {0.0f};
+	float a_reg[NUM_PER_REG_] = {0.0f};
+	float b_reg[NUM_PER_REG_] = {0.0f};
+  float temp[NUM_PER_REG_][NUM_PER_REG_] = {0.0f};
   __shared__ float a_shared[M_NUM_PER_BLOCK_][K_NUM_PER_BLOCK_];
   __shared__ float b_shared[K_NUM_PER_BLOCK_][N_NUM_PER_BLOCK_];
 
-  for (int k = 0; k < K; k += K_NUM_PER_BLOCK_) {
-		// reinterpret_cast<float4*>(a_shared) = einterpret_cast<float4*>(A_ptr)
-		//	这相当于在浅拷贝, a_shared依然指向A_ptr, 只不过stride为FP32*4
-		// FETCH_FLOAT4
-		// 	取地址(&) -> 类型转换 -> 解引用
-		// 	(reinterpret_cast<float4*>(
-		//		&(a_shared[threadIdx.y][threadIdx.x * NUM_PER_THREAD_]))
-		//		[0]) =
-		//	(reinterpret_cast<float4*>(
-		//		&(A_ptr[threadIdx.x * NUM_PER_THREAD_ + k]))
-		//		[0])
-		// a_shared[threadIdx.y][threadIdx.x * NUM_PER_THREAD_ + 0/1/2/3] =
-		//	A_ptr[k + threadIdx.x * NUM_PER_THREAD_ + 0/1/2/3]
+  for (int k_ = 0; k_ < K; k_ += K_NUM_PER_BLOCK_) {
+		// A_ptr:
+		//	threadIdx.y * K: 偏移到当前的小块所在的行的起始地址
+		//	k_: 偏移到当前的小块所在的列的起始地址(每个小块处理K_NUM_PER_BLOCK_个元素)
+		// B_ptr: 
+		//	(threadIdx.y + k) * N: 偏移到当前的小块所在的行的起始地址
 		FETCH_FLOAT4(a_shared[threadIdx.y][threadIdx.x * NUM_PER_THREAD_]) =
-			FETCH_FLOAT4(A_ptr[k + threadIdx.x * NUM_PER_THREAD_]);
+			FETCH_FLOAT4(A_ptr[threadIdx.y * K + k_ + threadIdx.x * NUM_PER_THREAD_]);
 		FETCH_FLOAT4(b_shared[threadIdx.y][threadIdx.x * NUM_PER_THREAD_]) =
-			FETCH_FLOAT4(B_ptr[(k + threadIdx.y) * N + threadIdx.x * NUM_PER_THREAD_]);
+			FETCH_FLOAT4(B_ptr[(threadIdx.y + k_) * N + threadIdx.x * NUM_PER_THREAD_]);
 		__syncthreads();
 
-		for (int i = 0; i < NUM_PER_THREAD_; ++i) {
-			for (int j = 0; j < K_NUM_PER_BLOCK_; ++j) {
-				temp[i] += a_shared[threadIdx.y][j] *
-				 	b_shared[j][threadIdx.x * NUM_PER_THREAD_ + i];
+		for (int k = 0; k < K_NUM_PER_BLOCK_; ++k) {
+			// 一个thread处理4个元素, a/b各取2个元素
+			// 且重新分配ty/tx
+			a_reg[0] = a_shared[cty * NUM_PER_REG_][k];
+			a_reg[1] = a_shared[cty * NUM_PER_REG_ + 1][k];
+			b_reg[0] = b_shared[k][ctx * NUM_PER_REG_];
+			b_reg[1] = b_shared[k][ctx * NUM_PER_REG_ + 1];
+			for (int m = 0; m < NUM_PER_REG_; ++m) {
+				for (int n = 0; n < NUM_PER_REG_; ++n) {
+					temp[m][n] += a_reg[m] * b_reg[n];
+				}
 			}
 		}
 		__syncthreads();
 	}
 
-	for (int i = 0; i < NUM_PER_THREAD_; ++i) {
-		C[(blockIdx.y * M_NUM_PER_BLOCK_ + threadIdx.y) * N +
-			blockIdx.x * N_NUM_PER_BLOCK_ + threadIdx.x * NUM_PER_THREAD_ + i] =
-		temp[i];
+	for (int m = 0; m < NUM_PER_REG_; ++m) {
+		for (int n = 0; n < NUM_PER_REG_; ++n) {
+			C_ptr[(cty * NUM_PER_REG_ + m) * N + ctx * NUM_PER_REG_ + n] =
+				temp[m][n];
+		}
 	}
 }
 
@@ -192,7 +206,8 @@ int main() {
 	dim3 grid((n + N_NUM_PER_BLOCK - 1) / N_NUM_PER_BLOCK,
     (m + M_NUM_PER_BLOCK - 1) / M_NUM_PER_BLOCK);
 	dim3 block(8, 32);
-	sgemm_v4<M_NUM_PER_BLOCK, N_NUM_PER_BLOCK, K_NUM_PER_BLOCK, NUM_PER_THREAD>
+	sgemm_v5<M_NUM_PER_BLOCK, N_NUM_PER_BLOCK, K_NUM_PER_BLOCK,
+		NUM_PER_THREAD, NUM_PER_REG>
     <<<grid, block>>>( A_buf_device, B_buf_device, C_buf_device, m, n, k);
 
 	// verify

@@ -1,0 +1,1 @@
+/usr/bin/g++  CMakeFiles/Sgemm_v5_2.dir/Sgemm_v5_2.cu.o -o app/Sgemm_v5_2  -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda-11.8/targets/x86_64-linux/lib" -lcudadevrt -lcudart_static -lrt -lpthread -ldl

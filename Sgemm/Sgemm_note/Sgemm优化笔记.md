@@ -34,3 +34,52 @@ v4:
 	v3的四个元素, 其实还是四条load指令, 从Global拿四次数据 ->
 	向量化, 一次拿四个数(内存连续) -> 只有一条load指令
 	TODO: 对B矩阵进行Transpose
+v5:
+![alt text](image-3.png)
+	在v1以前, 存在严重的重复读取问题, 且数据均在Global上, 读取代价很大,
+	v2引入Shared, 虽然还是要重复读取, 但是数据在Shared上, 读取代价变小,
+	-> 再进一步, Shared -> Register, 进一步减少读取代价
+	手动的写了两级Cache, 第一级: Global -> Shared 第二级: Shared -> Register
+	1. 内积: 先遍历M, 后遍历N, 最后遍历K
+		每次读一行, 一列, 相乘得出一个标量
+		问题: K一直在变, 但是对于B矩阵来说, K是行, 每变一次, stride为N, 而不是1
+		A: [M, K]   B: [K, N]
+		for m from 0 to bm:
+			for n from 0 to bn:
+				for k from 0 to bk:
+					C_tile[m][n] +=
+						A_tile[m][k] * B_tile[k][n]
+	2. 外积: 先遍历K, 后遍历M, 最后遍历N
+		每次读一列, 一行, 相乘得出一块矩阵
+		N一直在变, 对于B矩阵来说, N是列, 每变一次, stride为1, 连续,
+		对于A矩阵来说, m, k在内层循环时每次都不变 -> 编译器会将其优化到Register中
+		A: [M, K]   B: [K, N]
+		for k from 0 to bK:
+			for m from 0 to bm:
+				for n from 0 to bn:
+					C_tile[m][n] +=
+						A_tile[m][k] * B_tile[k][n]
+
+		A_frag, B_frag, C_frag: registers
+		A_tile, B_tile, C_tile: shared_memory
+		for k from 0 to bk:
+			A_frag[rm] = A_tile[0 to rm][k]
+			B_frag[rn] = B_tile[k][0 to rn]
+			for m from 0 to bm:
+				for n from 0 to bn:
+					C_frag[m][n] += A_frag[m] * B_frag[n];
+v6:
+![alt text](image-4.png)
+	在v5的基础上, 使用向量化进行读写, 增加每个thread的工作量(16个元素)
+	TODO: 继续增加每个thread的工作量 -> 增加a/b_reg至Register最大值
+v7:
+![alt text](image-5.png)
+	v6的不足: 在进行向量化读写时, 由于是外积, A矩阵要竖着读取 -> 无法向量化,
+	因此对A进行转置, 竖着读 -> 横着读 -> 向量化
+![alt text](image-6.png)
+	问题: 转置带来的坐标变换
+v8:
+![alt text](image-7.png)
+	A/B各分配两个Shared
+	Global搬到A/B_shared_0 -> sync -> Global搬到A/B_shared_1 + 计算shared_0 -> sync
+	-> Global搬到A/B_shared_0 + 计算shared_1 -> sync -> ...
